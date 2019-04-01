@@ -1,2 +1,2 @@
-# secretarybird-desktop
-Responsive desktop version of the administrative panel for the system SecretaryBird
+# secretarybird-webapp
+API to feed all the nodes of the SecretaryBird ecosystem and responsive webapp
