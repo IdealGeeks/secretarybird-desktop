@@ -12,11 +12,9 @@ class GruposTableSeeder extends Seeder
     public function run()
     {
         \Illuminate\Support\Facades\DB::table('grupos')->insert([
-            ['titulo' => 'Web Masters'],
-            ['titulo' => 'Diretores'],
-            ['titulo' => 'Gestores'],
-            ['titulo' => 'Analistas'],
-            ['titulo' => 'Consultores'],
+            ['titulo' => 'WebMasters'],
+            ['titulo' => 'Responsáveis'],
+            ['titulo' => 'Usuários']
         ]);
 
         \Illuminate\Support\Facades\DB::table('administradores_grupos')->insert([

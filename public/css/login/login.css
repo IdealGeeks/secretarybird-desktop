@@ -1,41 +1,29 @@
-.bg-account-pages {
-    background: #3A77BC;
-    background: -moz-linear-gradient(-45deg, #54428E, #3A77BC, #628AC6, #4CA399, #F4E285, #4CA399, #628AC6, #3A77BC, #54428E, #3A77BC, #628AC6, #4CA399, #F4E285, #4CA399, #628AC6, #3A77BC, #54428E, #3A77BC, #628AC6, #4CA399, #F4E285, #4CA399, #628AC6, #3A77BC, #54428E, #3A77BC, #628AC6, #4CA399, #F4E285, #4CA399, #628AC6, #3A77BC, #54428E, #3A77BC, #628AC6, #4CA399, #F4E285, #4CA399, #628AC6, #3A77BC, #54428E, #3A77BC, #628AC6, #4CA399, #F4E285, #4CA399, #628AC6, #3A77BC, #54428E);
-    background: -webkit-linear-gradient(-45deg, #54428E, #3A77BC, #628AC6, #4CA399, #F4E285, #4CA399, #628AC6, #3A77BC, #54428E, #3A77BC, #628AC6, #4CA399, #F4E285, #4CA399, #628AC6, #3A77BC, #54428E, #3A77BC, #628AC6, #4CA399, #F4E285, #4CA399, #628AC6, #3A77BC, #54428E, #3A77BC, #628AC6, #4CA399, #F4E285, #4CA399, #628AC6, #3A77BC, #54428E, #3A77BC, #628AC6, #4CA399, #F4E285, #4CA399, #628AC6, #3A77BC, #54428E, #3A77BC, #628AC6, #4CA399, #F4E285, #4CA399, #628AC6, #3A77BC, #54428E);
-    background: linear-gradient(-45deg, #54428E, #3A77BC, #628AC6, #4CA399, #F4E285, #4CA399, #628AC6, #3A77BC, #54428E, #3A77BC, #628AC6, #4CA399, #F4E285, #4CA399, #628AC6, #3A77BC, #54428E, #3A77BC, #628AC6, #4CA399, #F4E285, #4CA399, #628AC6, #3A77BC, #54428E, #3A77BC, #628AC6, #4CA399, #F4E285, #4CA399, #628AC6, #3A77BC, #54428E, #3A77BC, #628AC6, #4CA399, #F4E285, #4CA399, #628AC6, #3A77BC, #54428E, #3A77BC, #628AC6, #4CA399, #F4E285, #4CA399, #628AC6, #3A77BC, #54428E);
-    background-size: 10000% 10000%;
-    -webkit-animation: Gradient 240s linear infinite alternate;
-    -moz-animation: Gradient 240s linear infinite alternate;
-    animation: Gradient 240s linear infinite alternate;
-
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3A77BC', endColorstr='#628AC6',GradientType=1 );
+body {
+    animation: colorchange 20s infinite;
+    /* animation-name followed by duration in seconds*/
+    /* you could also use milliseconds (ms) or something like 2.5s */
+    -webkit-animation: colorchange 20s infinite;
+    /* Chrome and Safari */
 }
 
-@-webkit-keyframes Gradient {
-    0% {
-        background-position: 0% 50%
-    }
-    100% {
-        background-position: 100% 50%
-    }
-}
+@keyframes colorchange
+{
+    0%   {background: #54428E;}
+    20%  {background: #3A77BC;}
+    40%  {background: #628AC6;}
+    60%  {background: #4CA399;}
+    80%  {background: #F4E285;}
+    100% {background: #54428E;}
+}.
 
-@-moz-keyframes Gradient {
-    0% {
-        background-position: 0% 50%
-    }
-    100% {
-        background-position: 100% 50%
-    }
-}
-
-@keyframes Gradient {
-    0% {
-        background-position: 0% 50%
-    }
-    100% {
-        background-position: 100% 50%
-    }
+@-webkit-keyframes colorchange /* Safari and Chrome - necessary duplicate */
+{
+    0%   {background: #54428E;}
+    20%  {background: #3A77BC;}
+    40%  {background: #628AC6;}
+    60%  {background: #4CA399;}
+    80%  {background: #F4E285;}
+    100% {background: #54428E;}
 }
 
 .materialize .form-label-group label {
