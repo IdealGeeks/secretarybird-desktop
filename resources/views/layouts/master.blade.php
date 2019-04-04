@@ -1,37 +1,39 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <head>
     <meta charset="utf-8"/>
-    <title>Clínica Ideal</title>
+    <title>SecretaryBird</title>
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description"/>
-    <meta content="Coderthemes" name="author"/>
+    <meta content="Webapp dashboard for SecretaryBird Ecosystem" name="description"/>
+    <meta content="Creative Tim && Helike Long" name="author"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+
     <!-- App favicon -->
     <link rel="shortcut icon" href="{{asset('images/favicon.png')}}">
     <!-- Icons css -->
-    <link href="{{asset('greeva/dist/libs/@mdi/font/css/materialdesignicons.min.css')}}" rel="stylesheet" type="text/css"/>
-    <link href="{{asset('greeva/dist/libs/dripicons/webfont/webfont.css')}}" rel="stylesheet" type="text/css"/>
-    <link href="{{asset('greeva/dist/libs/@fortawesome/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css"/>
+    <link href="{{asset('../node_modules/@mdi/font/css/materialdesignicons.min.css')}}" rel="stylesheet" type="text/css"/>
+    <link href="{{asset('../node_modules/@fortawesome/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css"/>
     <!-- MetisMenu CSS -->
-    <link href="{{asset('greeva/dist/libs/metismenu/metisMenu.min.css')}}" rel="stylesheet" type="text/css"/>
+    <link href="{{asset('../node_modules/metismenu/metisMenu.min.css')}}" rel="stylesheet" type="text/css"/>
     <!-- Sweet Alert -->
-    <link href="{{asset('greeva/dist/libs/sweetalert2/sweetalert2.min.css')}}" rel="stylesheet" type="text/css"/>
-    <link href="{{ asset('greeva/dist/libs/select2/css/select2.min.css') }}" rel="stylesheet" type="text/css"/>
-    <link href="{{ asset('greeva/dist/libs/mohithg-switchery/switchery.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('greeva/dist/libs/jquery-ui/themes/base/datepicker.css') }}" rel="stylesheet"/>
-    <link href="{{ asset('greeva/dist/libs/bootstrap-datepicker/css/bootstrap-datepicker.min.css') }}" rel="stylesheet"/>
-    <link href="{{ asset('greeva/dist/libs/bootstrap-timepicker/css/bootstrap-timepicker.min.css') }}" rel="stylesheet"/>
+    <link href="{{ asset('../node_modules/sweetalert2/sweetalert2.min.css')}}" rel="stylesheet" type="text/css"/>
+
+    <link href="{{ asset('../node_modules/select2/css/select2.min.css') }}" rel="stylesheet" type="text/css"/>
+    <link href="{{ asset('../node_modules/mohithg-switchery/switchery.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('../node_modules/jquery-ui/themes/base/datepicker.css') }}" rel="stylesheet"/>
+    <link href="{{ asset('../node_modules/bootstrap-datepicker/css/bootstrap-datepicker.min.css') }}" rel="stylesheet"/>
+    <link href="{{ asset('../node_modules/bootstrap-timepicker/css/bootstrap-timepicker.min.css') }}" rel="stylesheet"/>
     <!-- Ladda Button -->
     <link href="{{ asset('greeva/dist/libs/ladda/ladda.min.css') }}" rel="stylesheet"/>
     <!-- IdealUI -->
-    <link href="{{asset('idealui/assets/css/idealui-toolkit.css')}}" rel="stylesheet" type="text/css"/>
-    <link href="{{ asset('idealui/assets/vendor/form-wizard/css/form-wizard.css') }}" rel="stylesheet" type="text/css"/>
+    <link href="http://idealtrends.io/idealui/dist/idealui/idealui.min.css" rel="stylesheet" type="text/css"/>
+    <link href="http://idealtrends.io/idealui/assets/vendor/form-wizard/css/form-wizard.css" rel="stylesheet" type="text/css"/>
     <!-- App css -->
-    <link href="{{asset('greeva/dist/css/app.min.css')}}" rel="stylesheet" type="text/css"/>
+    <link href="{{asset('paper-dashboard/css/paper-dashboard.min.css')}}" rel="stylesheet" type="text/css"/>
     <link href="{{asset('css/core.css')}}" rel="stylesheet" type="text/css"/>
     @yield('css')
 </head>
