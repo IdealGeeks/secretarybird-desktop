@@ -1,8 +1,6 @@
 # SecretaryBird - Webapp
 API to feed all the nodes of the SecretaryBird ecosystem and responsive webapp1
 
-A aplicação Soluções Industriais é multi-plataforma, tanto pode ser executada em ambiente Windows com IIS como em ambiente Linux Ubuntu com Apache.
-
 ## Requisitos minimos necessários
 
 Para qualquer um dos ambientes, se faz necessários os seguintes itens:
