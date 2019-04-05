@@ -49,7 +49,7 @@
           Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
       -->
         <div class="logo">
-            <a href="http://www.creative-tim.com" class="simple-text logo-normal">
+            <a href="#" class="logo-normal">
                 <div class="logo-image-big">
                     <img src="{{ asset('images/logo.png') }}">
                 </div>
