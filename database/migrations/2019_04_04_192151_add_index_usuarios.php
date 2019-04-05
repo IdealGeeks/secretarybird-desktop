@@ -14,7 +14,7 @@ class AddIndexUsuarios extends Migration
     public function up()
     {
         Schema::table('usuarios', function (Blueprint $table) {
-            $table->foreign('setores_id')->references('id')->on('setores');
+            $table->foreign('setor_id')->references('id')->on('setores');
         });
     }
 
@@ -26,7 +26,7 @@ class AddIndexUsuarios extends Migration
     public function down()
     {
         Schema::table('usuarios', function (Blueprint $table) {
-            $table->dropForeign(['setores_id']);
+            $table->dropForeign(['setor_id']);
         });
     }
 }

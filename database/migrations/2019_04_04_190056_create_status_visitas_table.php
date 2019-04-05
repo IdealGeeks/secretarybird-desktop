@@ -14,9 +14,9 @@ class CreateStatusVisitasTable extends Migration
     public function up()
     {
         Schema::create('status_visitas', function (Blueprint $table) {
-            $table->increments('id');
+            $table->integer('id')->autoIncrement();
             $table->string('titulo');
-            $table->unsignedInteger('visistas_id');
+            $table->integer('visita_id');
             $table->timestamps();
         });
     }

@@ -14,9 +14,9 @@ class AddIndexVisitas extends Migration
     public function up()
     {
         Schema::table('visitas', function (Blueprint $table) {
-            $table->foreign('tipos_visitas')->references('id')->on('tipos_visitas');
-            $table->foreign('empresas_id')->references('id')->on('empresas');
-            $table->foreign('usuarios_id')->references('id')->on('usuarios');
+            $table->foreign('tipo_visita')->references('id')->on('tipos_visitas');
+            $table->foreign('empresa_id')->references('id')->on('empresas');
+            $table->foreign('usuario_id')->references('id')->on('usuarios');
         });
     }
 
@@ -28,9 +28,9 @@ class AddIndexVisitas extends Migration
     public function down()
     {
         Schema::table('visitas', function (Blueprint $table) {
-            $table->dropForeign(['tipos_visitas']);
-            $table->dropForeign(['empresas_id']);
-            $table->dropForeign(['usuarios_id']);
+            $table->dropForeign(['tipo_visita']);
+            $table->dropForeign(['empresa_id']);
+            $table->dropForeign(['usuario_id']);
         });
     }
 }
