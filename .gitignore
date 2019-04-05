@@ -27,3 +27,4 @@ Homestead.json
 /package-lock.json
 
 public/idealui/*
+/public/node_modules/
