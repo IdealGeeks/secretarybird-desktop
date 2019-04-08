@@ -25,8 +25,8 @@
                                 @include('flash::message')
                                 @include('layouts.elements.validator')
                                 <h2 class="text-uppercase text-center">
-                                    <a href="https://idealtrends.com.br" target="_blank" class="text-success">
-                                        <span><img src="{{ asset('images/logo.png')}}" alt="" height="100"></span>
+                                    <a href="#" target="_blank" class="text-success">
+                                        <span><img src="{{ asset('images/logo.png') }}" alt="" height="100"></span>
                                     </a>
                                 </h2>
                             </div>

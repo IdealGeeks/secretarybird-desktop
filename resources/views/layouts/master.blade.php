@@ -15,6 +15,7 @@
     <!-- App favicon -->
     <link rel="shortcut icon" href="{{asset('images/favicon.png')}}">
     <!-- Icons css -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat+Alternates:400,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
     <link href="{{asset('node_modules/@mdi/font/css/materialdesignicons.min.css')}}" rel="stylesheet" type="text/css"/>
     <link href="{{asset('node_modules/@fortawesome/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css"/>
@@ -34,7 +35,7 @@
     <link href="{{ asset('node_modules/ladda/ladda.min.css') }}" rel="stylesheet"/>
     <!-- IdealUI -->
     <link href="http://idealtrends.io/idealui/dist/idealui/idealui.min.css" rel="stylesheet" type="text/css"/>
-    <link href="http://idealtrends.io/idealui/assets/vendor/form-wizard/css/form-wizard.css" rel="stylesheet" type="text/css"/>
+    <link href="http://idealtrends.io/idealui/assets/vendor/material-input/css/material-input.css" rel="stylesheet" type="text/css"/>
     <!-- App css -->
     <link href="{{asset('paper-dashboard/css/paper-dashboard.css')}}" rel="stylesheet" type="text/css"/>
     <link href="{{asset('paper-dashboard/demo/demo.css')}}" rel="stylesheet" type="text/css"/>
@@ -43,137 +44,99 @@
 </head>
 
 <body>
-<div class="wrapper ">
-    <div class="sidebar" data-color="white" data-active-color="danger">
-        <!--
-          Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
-      -->
-        <div class="logo">
-            <a href="http://www.creative-tim.com" class="simple-text logo-normal">
-                <div class="logo-image-big">
-                    <img src="{{ asset('images/logo.png') }}">
+    <div id="topnav">
+        <!-- Navbar -->
+        <nav class="navbar-custom">
+            {{--Menu--}}
+            <a href="{{route('admin.dashboard')}}" class="logo">
+                <div class="logo-lg">
+                    <img src="{{ asset('images/logo-notext-alt.png') }}" height="40">
                 </div>
             </a>
-        </div>
-        <div class="sidebar-wrapper">
-            @include('admin.elements.menu')
-        </div>
-    </div>
-    <div class="main-panel">
-        <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
-            <div class="container-fluid">
-                <div class="navbar-wrapper">
-                    <div class="navbar-toggle">
-                        <button type="button" class="navbar-toggler">
-                            <span class="navbar-toggler-bar bar1"></span>
-                            <span class="navbar-toggler-bar bar2"></span>
-                            <span class="navbar-toggler-bar bar3"></span>
-                        </button>
+            <div class="topbar-menu">
+                <div class="container-fluid">
+                    <div id="navigation">
+                        @include('admin.elements.menu')
                     </div>
-                    <a class="navbar-brand" href="#pablo">@yield('h1')</a>
                 </div>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-bar navbar-kebab"></span>
-                    <span class="navbar-toggler-bar navbar-kebab"></span>
-                    <span class="navbar-toggler-bar navbar-kebab"></span>
-                </button>
+            </div>
+            <div class="actions">
                 <div class="collapse navbar-collapse justify-content-end" id="navigation">
-                    <form>
-                        <div class="input-group no-border">
-                            <input type="text" value="" class="form-control" placeholder="Search...">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <i class="nc-icon nc-zoom-split"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link btn-magnify" href="#pablo">
-                                <i class="nc-icon nc-layout-11"></i>
-                                <p>
-                                    <span class="d-lg-none d-md-block">Stats</span>
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item btn-rotate dropdown">
-                            <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="nc-icon nc-bell-55"></i>
                                 <p>
-                                    <span class="d-lg-none d-md-block">Some Actions</span>
+                                    <span class="d-lg-none d-md-block">Notificações</span>
                                 </p>
                             </a>
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <a class="dropdown-item" href="#">Something else here</a>
+                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-animated profile-dropdown" x-placement="bottom-end">
+                                @include('admin.elements.notifications')
                             </div>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link btn-rotate" href="#pablo">
-                                <i class="nc-icon nc-settings-gear-65"></i>
+                        <li class="nav-item btn-rotate dropdown-user">
+                            <a href="#" class="nav-link dropdown-toggle nav-user" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <p>
-                                    <span class="d-lg-none d-md-block">Account</span>
+                                    <img src="{{ asset('images/user_blank.png') }}" alt="user" class="rounded-circle">
+                                    <span class="ml-1"> {{ \Illuminate\Support\Facades\Auth::guard('admin')->user()->nome }} <i class="mdi mdi-chevron-down"></i> </span>
                                 </p>
                             </a>
+                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-animated profile-dropdown" x-placement="bottom-end">
+                                <div class="dropdown-item noti-title">
+                                    <h6 class="text-overflow m-0">Olá, {{ \Illuminate\Support\Facades\Auth::guard('admin')->user()->nome }}
+                                        !</h6>
+                                </div>
+
+                                <a href="{{route('admin.administradores.edit', \Illuminate\Support\Facades\Auth::guard('admin')->user()->id) }}" class="dropdown-item notify-item link-out">
+                                    <i class="dripicons-user"></i> <span>Conta</span>
+                                </a>
+                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                    <i class="dripicons-gear"></i> <span>Configurações</span>
+                                </a>
+                                <a href="{{ route('noacl.route.login.logout') }}" class="dropdown-item notify-item">
+                                    <i class="dripicons-power"></i> <span>Sair</span>
+                                </a>
+                            </div>
                         </li>
                     </ul>
                 </div>
             </div>
-        </nav>
-        <!-- End Navbar -->
-        <!-- <div class="panel-header panel-header-lg">
+         </nav>
+    </div>
 
-    <canvas id="bigDashboardChart"></canvas>
+    <div class="wrapper ">
+        <div>
+            @section('title-bar')
+                <div class="page-title-box">
+                    @if (!\Request::is('/'))
+                        <a href="javascript:history.back()" role="button" class="header-icon btn-voltar link-out">
+                            <i class="mdi mdi-chevron-left"></i>
+                        </a>
+                    @endif
+                    @include('admin.elements.breadcrumb')
+                    <h4 class="page-title @if (\Request::is('/')) p-0 @endif">@yield('h1')</h4>
+                </div>
+            @show
+        </div>
 
-
-  </div> -->
-        <div class="content">
-            <div class="content_container">
-                @include('flash::message')
-                @include('layouts.elements.validator')
-                @yield('content')
+        <div class="container-fluid">
+            <div class="content">
+                <div class="content_container">
+                    @include('flash::message')
+                    @include('layouts.elements.validator')
+                    @yield('content')
+                </div>
             </div>
         </div>
         <footer class="footer footer-black  footer-white ">
-            <div class="container-fluid">
-                <div class="row">
-                    <nav class="footer-nav">
-                        <ul>
-                            <li>
-                                <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a>
-                            </li>
-                            <li>
-                                <a href="http://blog.creative-tim.com/" target="_blank">Blog</a>
-                            </li>
-                            <li>
-                                <a href="https://www.creative-tim.com/license" target="_blank">Licenses</a>
-                            </li>
-                        </ul>
-                    </nav>
-                    <div class="credits ml-auto">
-              <span class="copyright">
-                ©
-                <script>
-                  document.write(new Date().getFullYear())
-                </script>, made with <i class="fa fa-heart heart"></i> by Creative Tim
-              </span>
-                    </div>
-                </div>
-            </div>
+            @include('admin.elements.footer')
         </footer>
     </div>
-</div>
 </body>
 
-    <script src="{{ asset('paper-dashboard/js/core/jquery.min.js') }}" type="text/javascript"></script>
-    <script src="{{ asset('paper-dashboard/js/core/popper.min.js') }}" type="text/javascript"></script>
-    <script src="{{ asset('paper-dashboard/js/core/bootstrap.min.js') }}" type="text/javascript"></script>
-    <script src="{{ asset('paper-dashboard/js/plugins/perfect-scrollbar.jquery.min.js') }}" type="text/javascript"></script>
-    <script src="{{ asset('paper-dashboard/js/plugins/moment.min.js') }}"></script>
-
+    <script src="{{ asset('node_modules/jquery/dist/jquery.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('node_modules/bootstrap/dist/js/bootstrap.bundle.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('node_modules/moment/min/moment.min.js') }}"></script>
     <!-- jQuery  -->
     <script src="{{asset('node_modules/jquery-slimscroll/jquery.slimscroll.min.js')}}"></script>
     <!-- SweetAlert -->
