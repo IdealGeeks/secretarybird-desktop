@@ -37,6 +37,11 @@ html::-webkit-scrollbar-track-piece, .main-sidebar::-webkit-scrollbar-track-piec
 .table td, .table th {
     border-top: 0;
 }
+.table-responsive {
+    overflow: hidden;
+    overflow-x: auto;
+    padding-bottom: 0;
+}
 
 .page-title-box .page-title {
     padding-left: 50px;
@@ -105,6 +110,8 @@ a.header-icon:hover {
 /** Header */
 .wrapper {
     /*padding-top: 106px;*/
+    height: 84vh;
+    min-height: 84vh;
 }
 
 .navbar-custom {
@@ -669,6 +676,44 @@ a.header-icon:hover {
 .breadcrumb-item+.breadcrumb-item::before {
     padding-right: .3rem;
     content: "|";
+}
+
+/* Card Box */
+.card {
+    -webkit-box-shadow: 0 10px 35px 0 rgba(154,161,171,.1);
+    box-shadow: 0 10px 35px 0 rgba(154,161,171,.1);
+    border: none!important
+}
+.card-box {
+    padding: 20px;
+    border-radius: 3px;
+    margin-bottom: 30px;
+    background-color: #fff;
+    -webkit-box-shadow: 0 10px 35px 0 rgba(154,161,171,.1);
+    box-shadow: 0 10px 35px 0 rgba(154,161,171,.1)
+}
+.card-box .header-title {
+    margin-bottom: 8px;
+    font-size: 1.00625rem;
+    margin-top: 0
+}
+.card-box .card-drop {
+    font-size: 20px;
+    line-height: 30px;
+    color: inherit;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    text-align: center;
+    display: inline-block;
+    margin-top: -6px
+}
+.card-box .card-drop:hover {
+    background-color: #f3f6f8;
+    color: #3b3e47
+}
+.card-header,.card-title {
+    margin-top: 0!important
 }
 
 /* Shadows & Hovers */
