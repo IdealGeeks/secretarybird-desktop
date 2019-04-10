@@ -25,5 +25,7 @@ Homestead.json
 
 /composer.lock
 /package-lock.json
+/public/package-lock.json
 
 public/idealui/*
+/public/node_modules/

@@ -7,10 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 
     <link rel="shortcut icon" href="{{ asset('images/favicon.png')}}">
-    <link href="{{ asset('greeva/dist/libs/@mdi/font/css/materialdesignicons.min.css')}}" rel="stylesheet"/>
-    <link href="{{ asset('greeva/dist/libs/dripicons/webfont/webfont.css')}}" rel="stylesheet"/>
-    <link href="{{ asset('greeva/dist/libs/simple-line-icons/css/simple-line-icons.css')}}" rel="stylesheet"/>
-    <link href="{{ asset('idealui/assets/vendor/material-input/css/material-input.css')}}" rel="stylesheet"/>
+    <link href="http://idealtrends.io/idealui/assets/vendor/material-input/css/material-input.css" rel="stylesheet" type="text/css"/>
     <link href="{{ asset('greeva/dist/css/app.css')}}" rel="stylesheet"/>
     <link href="{{ asset('css/login/login.css')}}" rel="stylesheet"/>
 
@@ -28,15 +25,15 @@
                                 @include('flash::message')
                                 @include('layouts.elements.validator')
                                 <h2 class="text-uppercase text-center">
-                                    <a href="https://idealtrends.com.br" target="_blank" class="text-success">
-                                        <span><img src="{{ asset('images/logo.png')}}" alt="" height="60"></span>
+                                    <a href="#" target="_blank" class="text-success">
+                                        <span><img src="{{ asset('images/logo.png') }}" alt="" height="100"></span>
                                     </a>
                                 </h2>
                             </div>
                             <div class="account-content">
                                 {{ Form::open(['route' => 'noacl.route.login.submit']) }}
                                 @csrf
-                                <div class="col-md-12 materialize mb-3">
+                                <div class="col-md-12 materialize" style="margin-bottom: 35px;">
                                     <div class="form-label-group">
                                         <input type="text" id="email" name="email" class="form-control required {{ $errors->has('email') ? ' input-error' : '' }}"
                                                placeholder="{{__('Insira seu email de acesso')}}" required="required" autofocus>
@@ -72,13 +69,6 @@
         </div>
     </div>
 </section>
-
-<script src="{{ asset('greeva/dist/libs/jquery/jquery.min.js')}}"></script>
-<script src="{{ asset('greeva/dist/libs/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-<script src="{{ asset('greeva/dist/libs/jquery-slimscroll/jquery.slimscroll.min.js')}}"></script>
-
-<script src="{{ asset('greeva/dist/js/jquery.core.js')}}"></script>
-<script src="{{ asset('greeva/dist/js/jquery.app.js')}}"></script>
 
 </body>
 </html>

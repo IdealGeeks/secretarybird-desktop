@@ -1,4 +1,4 @@
-<ul class="navigation-menu">
+<ul class="nav navigation-menu">
     <li>
         <a class="link-out" href="{{route('admin.dashboard')}}"><i class="mdi mdi-home"></i>Dashboard</a>
     </li>
