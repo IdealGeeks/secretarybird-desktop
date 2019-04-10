@@ -15,7 +15,7 @@ class AdministradoresPermissoesTableSeeder extends Seeder
 
         $super_admin = [];
 
-        for ($i = 1; $i <= 37; $i++) {
+        for ($i = 1; $i <= 29; $i++) {
             $super_admin[$i] = ['administrador_id' => 1, 'permissao_id' => $i];
         }
 

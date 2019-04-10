@@ -14,7 +14,7 @@ class AddColunmsToUsuariosTable extends Migration
     public function up()
     {
         Schema::table('usuarios', function (Blueprint $table) {
-            $table->unsignedInteger('setores_id');
+            $table->integer('setor_id');
         });
     }
 
@@ -26,7 +26,7 @@ class AddColunmsToUsuariosTable extends Migration
     public function down()
     {
         Schema::table('usuarios', function (Blueprint $table) {
-            $table->dropForeign(['setores_id']);
+            $table->dropForeign(['setor_id']);
         });
     }
 }

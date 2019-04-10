@@ -14,7 +14,7 @@ class CreateEmpresasTable extends Migration
     public function up()
     {
         Schema::create('empresas', function (Blueprint $table) {
-            $table->increments('id');
+            $table->integer('id', true);
             $table->string('nome');
             $table->integer('interno');
             $table->timestamps();

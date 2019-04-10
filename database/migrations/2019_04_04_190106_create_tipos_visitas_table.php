@@ -14,7 +14,7 @@ class CreateTiposVisitasTable extends Migration
     public function up()
     {
         Schema::create('tipos_visitas', function (Blueprint $table) {
-            $table->increments('id');
+            $table->integer('id', true);
             $table->string('nome');
             $table->timestamps();
         });
