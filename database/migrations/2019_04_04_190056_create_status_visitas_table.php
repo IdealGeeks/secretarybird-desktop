@@ -15,7 +15,7 @@ class CreateStatusVisitasTable extends Migration
     {
         Schema::create('status_visitas', function (Blueprint $table) {
             $table->integer('id', true);
-            $table->string('titulo');
+            $table->integer('status_visita_id');
             $table->integer('visita_id');
             $table->timestamps();
         });
