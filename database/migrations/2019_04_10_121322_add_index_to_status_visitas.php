@@ -13,8 +13,8 @@ class AddIndexToStatusVisitas extends Migration
      */
     public function up()
     {
-        Schema::table('status_visitas', function (Blueprint $table) {
-            $table->foreign('status_visita_id')->references('id')->on('status_visitas');
+        Schema::table('visitas_status_visitas', function (Blueprint $table) {
+            $table->foreign('status_visitas_id')->references('id')->on('status_visitas');
         });
     }
 
@@ -25,8 +25,8 @@ class AddIndexToStatusVisitas extends Migration
      */
     public function down()
     {
-        Schema::table('status_visitas', function (Blueprint $table) {
-            $table->dropForeign(['status_visita_id']);
+        Schema::table('visitas_status_visitas', function (Blueprint $table) {
+            $table->dropForeign(['status_visitas_id']);
         });
     }
 }

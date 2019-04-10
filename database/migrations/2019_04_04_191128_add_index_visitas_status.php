@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateStatusVisitasTable extends Migration
+class AddIndexVisitasStatus extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,8 @@ class CreateStatusVisitasTable extends Migration
      */
     public function up()
     {
-        Schema::create('status_visitas', function (Blueprint $table) {
-            $table->integer('id', true);
-            $table->integer('status_visita_id');
-            $table->integer('visita_id');
-            $table->timestamps();
+        Schema::table('visitas_status_visitas', function (Blueprint $table) {
+            $table->foreign('visita_id')->references('id')->on('visitas');
         });
     }
 
@@ -28,6 +25,8 @@ class CreateStatusVisitasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('status_visitas');
+        Schema::table('visitas_status_visitas', function (Blueprint $table) {
+            $table->dropForeign(['visita_id']);
+        });
     }
 }

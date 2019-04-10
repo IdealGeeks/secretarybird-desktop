@@ -11,7 +11,7 @@ class StatusVisitaTableSeeder extends Seeder
      */
     public function run()
     {
-        \Illuminate\Support\Facades\DB::table('status_visita')->insert([
+        \Illuminate\Support\Facades\DB::table('status_visitas')->insert([
             [
                 'titulo' => 'Confirmado'
             ],
