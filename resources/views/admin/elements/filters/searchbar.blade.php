@@ -11,7 +11,7 @@
         </div>
     </div>
 
-    <div class="col-12 col-lg-1 text-center ">
+    <div class="col-12 col-lg-1 text-center p-0">
         <button class="btn btn-outline-primary btn-toolbar search btn-icon d-none d-md-none d-lg-inline-block d-xl-inline-block"
                 data-toggle="tooltip" title="Filtrar">
             <i aria-hidden="true" class="mdi mdi-magnify"></i>
