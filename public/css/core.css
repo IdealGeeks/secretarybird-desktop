@@ -55,9 +55,10 @@ html::-webkit-scrollbar-track-piece, .main-sidebar::-webkit-scrollbar-track-piec
     right: 0;
     top: 27px;
     border-radius: 0;
+    background-color: #FFF;
 }
 .content_container {
-    margin-top: 75px;
+    margin-top: 55px;
 }
 .breadcrumb {
     padding: .5rem 1rem;
@@ -732,6 +733,9 @@ a.header-icon:hover {
 
 /* Toolbar */
 .toolbar .btn-toolbar {
+    height: 3.375rem;
+    min-width: 3.375rem;
+    width: 3.375rem;
     padding: 11px 15px;
     transition: 0.3s;
     margin-top: 5px;
