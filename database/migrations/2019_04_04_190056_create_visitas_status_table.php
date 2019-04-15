@@ -18,6 +18,7 @@ class CreateVisitasStatusTable extends Migration
             $table->integer('status_visitas_id');
             $table->integer('visita_id');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
