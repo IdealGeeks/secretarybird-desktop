@@ -18,6 +18,7 @@ class CreateResponsaveisTable extends Migration
             $table->integer('empresa_id');
             $table->integer('usuario_id');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

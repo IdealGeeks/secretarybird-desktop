@@ -17,6 +17,7 @@ class CreateTiposVisitasTable extends Migration
             $table->integer('id', true);
             $table->string('titulo');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

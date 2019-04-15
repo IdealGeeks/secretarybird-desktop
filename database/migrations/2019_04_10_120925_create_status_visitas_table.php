@@ -17,6 +17,7 @@ class CreateStatusVisitasTable extends Migration
             $table->integer('id')->autoIncrement();
             $table->string('titulo');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

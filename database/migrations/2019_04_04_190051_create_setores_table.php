@@ -18,6 +18,7 @@ class CreateSetoresTable extends Migration
             $table->string('nome');
             $table->integer('empresa_id');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -18,6 +18,7 @@ class CreateEmpresasTable extends Migration
             $table->string('nome');
             $table->integer('interno');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
