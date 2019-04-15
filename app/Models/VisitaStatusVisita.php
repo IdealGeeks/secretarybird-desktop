@@ -23,4 +23,14 @@ class VisitaStatusVisita extends Model
         'deleted_at',
     ];
 
+    public function status_visitas()
+    {
+        return $this->belongsTo(\App\Models\StatusVisita::class, 'status_visitas_id');
+    }
+
+    public function visitas()
+    {
+        return $this->belongsTo(\App\Models\Visita::class, 'visita_id');
+    }
+
 }
