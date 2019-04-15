@@ -24,4 +24,24 @@ class Visita extends Model
         'updated_at',
         'deleted_at',
     ];
+
+    public function usuarios()
+    {
+        return $this->belongsTo(\App\Models\Usuario::class, 'usuario_id');
+    }
+
+    public function tipos_visitas()
+    {
+        return $this->belongsTo(\App\Models\TipoVisita::class, 'tipo_visita');
+    }
+
+    public function empresas()
+    {
+        return $this->belongsTo(\App\Models\Empresa::class, 'empresa_id');
+    }
+
+    public function status_visitas()
+    {
+        return $this->belongsToMany(\App\Models\StatusVisita::class, 'visitas_status_visitas', 'visita_id', 'status_visitas_id');
+    }
 }

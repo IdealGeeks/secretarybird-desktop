@@ -17,4 +17,9 @@ class StatusVisita extends Model
         'updated_at',
         'deleted_at',
     ];
+
+    public function visitas()
+    {
+        return $this->belongsToMany(\App\Models\Visita::class, 'visitas_status_visitas', 'status_visitas_id', 'visita_id');
+    }
 }
