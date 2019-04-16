@@ -32,7 +32,7 @@
     <link href="{{ asset('node_modules/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css') }}" rel="stylesheet"/>
     <link href="{{ asset('node_modules/bootstrap-timepicker/css/bootstrap-timepicker.min.css') }}" rel="stylesheet"/>
     <!-- Ladda Button -->
-    <link href="{{ asset('node_modules/ladda/ladda.min.css') }}" rel="stylesheet"/>
+    <link href="{{ asset('node_modules/ladda/dist/ladda.min.css') }}" rel="stylesheet"/>
     <!-- IdealUI -->
     <link href="http://idealtrends.io/idealui/dist/idealui/idealui.min.css" rel="stylesheet" type="text/css"/>
     <link href="http://idealtrends.io/idealui/assets/vendor/material-input/css/material-input.css" rel="stylesheet" type="text/css"/>
@@ -128,10 +128,10 @@
                 </div>
             </div>
         </div>
-        <footer class="footer footer-black  footer-white ">
-            @include('admin.elements.footer')
-        </footer>
     </div>
+    <footer class="footer footer-black  footer-white ">
+        @include('admin.elements.footer')
+    </footer>
 </body>
 
     <script src="{{ asset('node_modules/jquery/dist/jquery.min.js') }}" type="text/javascript"></script>
@@ -155,8 +155,8 @@
     <script src="{{ asset('node_modules/bootstrap-datepicker/dist/locales/bootstrap-datepicker.pt-BR.min.js') }}"></script>
     <script src="{{ asset('node_modules/bootstrap-timepicker/js/bootstrap-timepicker.min.js') }}"></script>
     <!-- Ladda Button -->
-    <script src="{{ asset('node_modules/ladda/spin.min.js') }}"></script>
-    <script src="{{ asset('node_modules/ladda/ladda.min.js') }}"></script>
+    <script src="{{ asset('node_modules/ladda/node_modules/spin.js/spin.min.js') }}"></script>
+    <script src="{{ asset('node_modules/ladda/dist/ladda.min.js') }}"></script>
     <!-- IdealUI -->
     <script src="http://idealtrends.io/idealui/dist/idealui/idealui.min.js"></script>
     <script>

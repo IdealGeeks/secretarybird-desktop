@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddIndexStatusVisitas extends Migration
+class CreateStatusVisitasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,11 @@ class AddIndexStatusVisitas extends Migration
      */
     public function up()
     {
-        Schema::table('status_visitas', function (Blueprint $table) {
-            $table->foreign('visita_id')->references('id')->on('visitas');
+        Schema::create('status_visitas', function (Blueprint $table) {
+            $table->integer('id')->autoIncrement();
+            $table->string('titulo');
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -25,8 +28,6 @@ class AddIndexStatusVisitas extends Migration
      */
     public function down()
     {
-        Schema::table('status_visitas', function (Blueprint $table) {
-            $table->dropForeign(['visita_id']);
-        });
+        Schema::dropIfExists('status_visitas');
     }
 }

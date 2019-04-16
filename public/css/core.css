@@ -37,6 +37,11 @@ html::-webkit-scrollbar-track-piece, .main-sidebar::-webkit-scrollbar-track-piec
 .table td, .table th {
     border-top: 0;
 }
+.table-responsive {
+    overflow: hidden;
+    overflow-x: auto;
+    padding-bottom: 0;
+}
 
 .page-title-box .page-title {
     padding-left: 50px;
@@ -50,9 +55,10 @@ html::-webkit-scrollbar-track-piece, .main-sidebar::-webkit-scrollbar-track-piec
     right: 0;
     top: 27px;
     border-radius: 0;
+    background-color: #FFF;
 }
 .content_container {
-    margin-top: 75px;
+    margin-top: 55px;
 }
 .breadcrumb {
     padding: .5rem 1rem;
@@ -105,6 +111,8 @@ a.header-icon:hover {
 /** Header */
 .wrapper {
     /*padding-top: 106px;*/
+    height: 84vh;
+    min-height: 84vh;
 }
 
 .navbar-custom {
@@ -671,6 +679,44 @@ a.header-icon:hover {
     content: "|";
 }
 
+/* Card Box */
+.card {
+    -webkit-box-shadow: 0 10px 35px 0 rgba(154,161,171,.1);
+    box-shadow: 0 10px 35px 0 rgba(154,161,171,.1);
+    border: none!important
+}
+.card-box {
+    padding: 20px;
+    border-radius: 3px;
+    margin-bottom: 30px;
+    background-color: #fff;
+    -webkit-box-shadow: 0 10px 35px 0 rgba(154,161,171,.1);
+    box-shadow: 0 10px 35px 0 rgba(154,161,171,.1)
+}
+.card-box .header-title {
+    margin-bottom: 8px;
+    font-size: 1.00625rem;
+    margin-top: 0
+}
+.card-box .card-drop {
+    font-size: 20px;
+    line-height: 30px;
+    color: inherit;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    text-align: center;
+    display: inline-block;
+    margin-top: -6px
+}
+.card-box .card-drop:hover {
+    background-color: #f3f6f8;
+    color: #3b3e47
+}
+.card-header,.card-title {
+    margin-top: 0!important
+}
+
 /* Shadows & Hovers */
 .card-box, .page-title-box {
     -webkit-box-shadow: 0 1.5px 4px rgba(0, 0, 0, 0.14), 0 1.5px 6px rgba(0, 0, 0, 0.04);
@@ -687,6 +733,9 @@ a.header-icon:hover {
 
 /* Toolbar */
 .toolbar .btn-toolbar {
+    height: 3.375rem;
+    min-width: 3.375rem;
+    width: 3.375rem;
     padding: 11px 15px;
     transition: 0.3s;
     margin-top: 5px;

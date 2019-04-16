@@ -14,7 +14,7 @@ class CreateVisitasTable extends Migration
     public function up()
     {
         Schema::create('visitas', function (Blueprint $table) {
-            $table->integer('id')->autoIncrement();
+            $table->integer('id', true);
             $table->string('nome');
             $table->dateTime('horario');
             $table->string('detalhes');
@@ -22,6 +22,7 @@ class CreateVisitasTable extends Migration
             $table->integer('empresa_id');
             $table->integer('usuario_id');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

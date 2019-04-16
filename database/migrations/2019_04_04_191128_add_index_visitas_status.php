@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddColunmsToUsuariosTable extends Migration
+class AddIndexVisitasStatus extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddColunmsToUsuariosTable extends Migration
      */
     public function up()
     {
-        Schema::table('usuarios', function (Blueprint $table) {
-            $table->integer('setor_id');
+        Schema::table('visitas_status_visitas', function (Blueprint $table) {
+            $table->foreign('visita_id')->references('id')->on('visitas');
         });
     }
 
@@ -25,8 +25,8 @@ class AddColunmsToUsuariosTable extends Migration
      */
     public function down()
     {
-        Schema::table('usuarios', function (Blueprint $table) {
-            $table->dropForeign(['setor_id']);
+        Schema::table('visitas_status_visitas', function (Blueprint $table) {
+            $table->dropForeign(['visita_id']);
         });
     }
 }

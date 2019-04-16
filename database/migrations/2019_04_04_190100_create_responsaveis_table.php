@@ -14,10 +14,11 @@ class CreateResponsaveisTable extends Migration
     public function up()
     {
         Schema::create('responsaveis', function (Blueprint $table) {
-            $table->integer('id')->autoIncrement();
+            $table->integer('id', true);
             $table->integer('empresa_id');
             $table->integer('usuario_id');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

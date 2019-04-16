@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateStatusVisitasTable extends Migration
+class CreateVisitasStatusTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,12 @@ class CreateStatusVisitasTable extends Migration
      */
     public function up()
     {
-        Schema::create('status_visitas', function (Blueprint $table) {
-            $table->integer('id')->autoIncrement();
-            $table->string('titulo');
+        Schema::create('visitas_status_visitas', function (Blueprint $table) {
+            $table->integer('id', true);
+            $table->integer('status_visitas_id');
             $table->integer('visita_id');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -28,6 +29,6 @@ class CreateStatusVisitasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('status_visitas');
+        Schema::dropIfExists('visitas_status_visitas');
     }
 }

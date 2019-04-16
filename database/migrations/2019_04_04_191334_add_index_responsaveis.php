@@ -27,8 +27,8 @@ class AddIndexResponsaveis extends Migration
     public function down()
     {
         Schema::table('responsaveis', function (Blueprint $table) {
-            $table->foreign('empresa_id')->references('id')->on('empresas');
-            $table->foreign('usuario_id')->references('id')->on('usuarios');
+            $table->dropForeign(['empresa_id']);
+            $table->dropForeign(['usuario_id']);
         });
     }
 }
