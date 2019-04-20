@@ -110,9 +110,8 @@ a.header-icon:hover {
 
 /** Header */
 .wrapper {
-    /*padding-top: 106px;*/
-    height: 84vh;
-    min-height: 84vh;
+    height: auto;
+    min-height: 77vh;
 }
 
 .navbar-custom {
@@ -736,13 +735,13 @@ a.header-icon:hover {
     height: 3.375rem;
     min-width: 3.375rem;
     width: 3.375rem;
-    padding: 11px 15px;
+    padding: 0;
     transition: 0.3s;
     margin-top: 5px;
     display: inline-block;
 }
 .toolbar .btn-toolbar.search {
-    font-size: 20px;
+    font-size: 26px;
 }
 .toolbar .btn-toolbar.search i {
     font-weight: bold;
