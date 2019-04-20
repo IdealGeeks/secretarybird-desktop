@@ -18,13 +18,23 @@ use Illuminate\Support\Facades\Route;
 /**
  * Rotas vindas a API autenticada
  */
-Route::group(['namespace' => 'Api', 'middleware' => [\App\Http\Middleware\Authenticate::class, \App\Http\Middleware\AclMiddleware::class,], 'as' => 'api.'], function () {
+Route::group(['namespace' => 'Api', 'middleware' => [
+//    'auth',
+//    'cors'
+], 'as' => 'api.'], function () {
 
+    //Rotas para visitas
+    Route::prefix('/visitas')->group(function () {
+        Route::get('/obtem/{id}', 'VisitasController@obtemPorId')->name('visitas.obtemPorId');
+        Route::get('/obtem-todos', 'VisitasController@obtemTodos')->name('visitas.obtemTodos');
+    });
 });
 
 /**
  * Rotas vindas de api liberadas por CORS [default => '*']
  */
-Route::group(['middleware' => [\App\Http\Middleware\AddHeaders::class]], function () {
+Route::group(['middleware' => [
+    'cors'
+], 'as' => 'api.'], function () {
 
 });

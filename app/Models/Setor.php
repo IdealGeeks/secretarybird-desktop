@@ -18,4 +18,17 @@ class Setor extends Model
         'updated_at',
         'deleted_at',
     ];
+
+    protected $hidden = [
+        'id',
+        'created_at',
+        'updated_at',
+        'deleted_at',
+        'empresa_id',
+    ];
+
+    public function empresa()
+    {
+        return $this->belongsTo(\App\Models\Empresa::class, 'empresa_id');
+    }
 }

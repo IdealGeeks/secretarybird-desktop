@@ -42,11 +42,18 @@ class Usuario extends Authenticatable
         'email',
         'password',
         'status_id',
+        'setor_id',
     ];
 
     protected $hidden = [
         'password',
         'remember_token',
+        'id',
+        'created_at',
+        'updated_at',
+        'deleted_at',
+        'status_id',
+        'setor_id',
     ];
 
     protected $table = 'usuarios';
@@ -72,5 +79,10 @@ class Usuario extends Authenticatable
     public function setPasswordAttribute($password)
     {
         $this->attributes['password'] = (!empty($password) ? bcrypt($password) : $this->attributes['password']);
+    }
+
+    public function setor()
+    {
+        return $this->belongsTo(\App\Models\Setor::class, 'setor_id')->with('empresa');
     }
 }
