@@ -123,29 +123,28 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => [\App
 
         //Visitas
         Route::prefix('/visitas')->group(function () {
-            Route::get('/', 'VisitasController@index')->name('usuarios.index');
-            Route::get('/{id}/editar', 'VisitasController@edit')->name('usuarios.edit');
-            Route::get('/cadastro', 'VisitasController@create')->name('usuarios.create');
-            Route::get('/lixeira', 'VisitasController@trashed')->name('usuarios.trashed');
+            Route::get('/', 'VisitasController@index')->name('visitas.index');
+            Route::get('/{id}/editar', 'VisitasController@edit')->name('visitas.edit');
+            Route::get('/cadastro', 'VisitasController@create')->name('visitas.create');
+            Route::get('/lixeira', 'VisitasController@trashed')->name('visitas.trashed');
         });
 
         //Empresas
         Route::prefix('/empresas')->group(function () {
-            Route::get('/', 'EmpresasController@index')->name('usuarios.index');
-            Route::get('/{id}/editar', 'EmpresasController@edit')->name('usuarios.edit');
-            Route::get('/cadastro', 'EmpresasController@create')->name('usuarios.create');
-            Route::get('/lixeira', 'EmpresasController@trashed')->name('usuarios.trashed');
+            Route::get('/', 'EmpresasController@index')->name('empresas.index');
+            Route::get('/{id}/editar', 'EmpresasController@edit')->name('empresas.edit');
+            Route::get('/cadastro', 'EmpresasController@create')->name('empresas.create');
+            Route::get('/lixeira', 'EmpresasController@trashed')->name('empresas.trashed');
         });
 
         //Setores
         Route::prefix('/setores')->group(function () {
-            Route::get('/', 'SetoresController@index')->name('usuarios.index');
-            Route::get('/{id}/editar', 'SetoresController@edit')->name('usuarios.edit');
-            Route::get('/cadastro', 'SetoresController@create')->name('usuarios.create');
-            Route::get('/lixeira', 'SetoresController@trashed')->name('usuarios.trashed');
+            Route::get('/', 'SetoresController@index')->name('setores.index');
+            Route::get('/{id}/editar', 'SetoresController@edit')->name('setores.edit');
+            Route::get('/cadastro', 'SetoresController@create')->name('setores.create');
+            Route::get('/lixeira', 'SetoresController@trashed')->name('setores.trashed');
         });
     });
-
 });
 
 

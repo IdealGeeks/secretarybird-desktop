@@ -1,4 +1,13 @@
 body {
+    font-family: "Libre Franklin", sans-serif;
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #6c757d;
+    text-align: left;
+    margin: 0;
+
+    background: #54428E;
     animation: colorchange 20s infinite;
     /* animation-name followed by duration in seconds*/
     /* you could also use milliseconds (ms) or something like 2.5s */

@@ -8,7 +8,6 @@
 
     <link rel="shortcut icon" href="{{ asset('images/favicon.png')}}">
     <link href="http://idealtrends.io/idealui/assets/vendor/material-input/css/material-input.css" rel="stylesheet" type="text/css"/>
-    <link href="{{ asset('greeva/dist/css/app.css')}}" rel="stylesheet"/>
     <link href="{{ asset('css/login/login.css')}}" rel="stylesheet"/>
 
     <title>{{ env('APP_NAME') }}</title>

@@ -56,3 +56,35 @@ npm install --prefix ./public
 ```bash
 composer install
 ```
+
+#### Configuração do banco de dados:
+
+Criar uma cópia do arquivo `.env.example` para `.env` (caso não exista).
+Abra o arquivo `.env` e informe os dados para acesso ao banco de dados.
+
+```php
+DB_DATABASE=homestead
+DB_USERNAME=homestead
+DB_PASSWORD=secret
+```
+
+#### Configuração a aplicação:
+
+No arquivo `.env` ajuste o campo `APP_URL=http://secretarybird.lh` e em seguida rode o comando:
+
+```bash
+php artisan key:generate
+```
+
+#### Criar e popular o banco de dados:
+
+Crie um banco no seu MySQL com o nome que você colocou no `.env` e em seguida rode o comando:
+
+```bash
+php artisan migrate:fresh --seed
+```
+
+### Acessos do sistema
+
+Usuário administrador padrão: `admin@admin.com.br` <br/>
+Senha do administrador padrão: `102030`
