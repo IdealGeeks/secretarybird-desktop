@@ -158,11 +158,11 @@
     <script src="{{ asset('node_modules/ladda/node_modules/spin.js/spin.min.js') }}"></script>
     <script src="{{ asset('node_modules/ladda/dist/ladda.min.js') }}"></script>
     <!-- IdealUI -->
-    <script src="http://idealtrends.io/idealui/dist/idealui/idealui.min.js"></script>
+    <script src="//idealtrends.io/idealui/dist/idealui/idealui.min.js"></script>
     <script>
         IdealUiJs.baseUrl = '{{ \Illuminate\Support\Facades\URL::to('/') }}';
     </script>
-    <script src="http://idealtrends.io/idealui/assets/vendor/form-wizard/js/form-wizard.js"></script>
+    <script src="//idealtrends.io/idealui/assets/vendor/form-wizard/js/form-wizard.js"></script>
 
     <script src="{{ asset('paper-dashboard/js/paper-dashboard.min.js') }}"></script>
     <!-- Core.js -->

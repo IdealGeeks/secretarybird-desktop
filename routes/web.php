@@ -104,6 +104,8 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => [\App
 
             Route::match(['post', 'get'], '/{id}/editar', 'UsuariosController@edit')->name('usuarios.edit');
             Route::match(['post', 'get'], '/cadastro', 'UsuariosController@create')->name('usuarios.create');
+
+            Route::get('/perfil/{id}', 'UsuariosController@perfil')->name('usuarios.perfil');
         });
 
         //Tenancy server
@@ -117,6 +119,30 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => [\App
 
             Route::match(['post', 'get'], '/{id}/editar', 'TenancyController@edit')->name('tenancy.edit');
             Route::match(['post', 'get'], '/cadastro', 'TenancyController@create')->name('tenancy.create');
+        });
+
+        //Visitas
+        Route::prefix('/visitas')->group(function () {
+            Route::get('/', 'VisitasController@index')->name('usuarios.index');
+            Route::get('/{id}/editar', 'VisitasController@edit')->name('usuarios.edit');
+            Route::get('/cadastro', 'VisitasController@create')->name('usuarios.create');
+            Route::get('/lixeira', 'VisitasController@trashed')->name('usuarios.trashed');
+        });
+
+        //Empresas
+        Route::prefix('/empresas')->group(function () {
+            Route::get('/', 'EmpresasController@index')->name('usuarios.index');
+            Route::get('/{id}/editar', 'EmpresasController@edit')->name('usuarios.edit');
+            Route::get('/cadastro', 'EmpresasController@create')->name('usuarios.create');
+            Route::get('/lixeira', 'EmpresasController@trashed')->name('usuarios.trashed');
+        });
+
+        //Setores
+        Route::prefix('/setores')->group(function () {
+            Route::get('/', 'SetoresController@index')->name('usuarios.index');
+            Route::get('/{id}/editar', 'SetoresController@edit')->name('usuarios.edit');
+            Route::get('/cadastro', 'SetoresController@create')->name('usuarios.create');
+            Route::get('/lixeira', 'SetoresController@trashed')->name('usuarios.trashed');
         });
     });
 

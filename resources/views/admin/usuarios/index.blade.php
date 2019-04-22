@@ -76,13 +76,12 @@
         <div class="col-md-12">{{ $usuarios->appends(request()->query())->links() }}</div>
         <div class="col-md-12">
             Página {{$usuarios->currentPage()}} de {{$usuarios->lastPage()}},
-            mostrando {{$usuarios->count()}} resultados de {{$usuarios->total()}} no total
+            Total de {{$usuarios->total()}} registros.
         </div>
     </div>
 @endsection
 
 @section('css')
-    <link href="{{ vAsset('idealui/assets/vendor/material-input/css/material-input.css') }}" rel="stylesheet"/>
 @endsection
 
 @section('scripts')

@@ -93,7 +93,6 @@
 @endsection
 
 @section('css')
-    <link href="{{ asset('idealui/assets/vendor/material-input/css/material-input.css') }}" rel="stylesheet" type="text/css"/>
 @endsection
 
 @section('scripts')
