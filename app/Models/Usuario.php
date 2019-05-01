@@ -42,6 +42,7 @@ class Usuario extends Authenticatable
         'email',
         'password',
         'status_id',
+        'setor_id',
     ];
 
     protected $hidden = [
