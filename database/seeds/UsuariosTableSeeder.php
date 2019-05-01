@@ -16,7 +16,7 @@ class UsuariosTableSeeder extends Seeder
                 'nome' => 'Vinicius',
                 'sobrenome' => 'Shirakawabe',
                 'email' => 'gordinho@gmail.com.br',
-                'password' => '$2y$10$eKEMc1CkO5HWFziGE5VONO9lAPc3swzIDswNfNprIOHyxN4TFkQz6',
+                'password' => bcrypt('102030'),
                 'status_id' => '1',
                 'remember_token' => null,
                 'setor_id' => '1'
@@ -25,7 +25,7 @@ class UsuariosTableSeeder extends Seeder
                 'nome' => 'Pedro',
                 'sobrenome' => 'Helike',
                 'email' => 'pedrao@gmail.com.br',
-                'password' => '$2y$10$eKEMc1CkO5HWFziGE5VONO9lAPc3swzIDswNfNprIOHyxN4TFkQz6',
+                'password' => bcrypt('102030'),
                 'status_id' => '1',
                 'remember_token' => null,
                 'setor_id' => '2'
@@ -34,7 +34,7 @@ class UsuariosTableSeeder extends Seeder
                 'nome' => 'Rafael',
                 'sobrenome' => 'Lima',
                 'email' => 'simba@gmail.com.br',
-                'password' => '$2y$10$eKEMc1CkO5HWFziGE5VONO9lAPc3swzIDswNfNprIOHyxN4TFkQz6',
+                'password' => bcrypt('102030'),
                 'status_id' => '1',
                 'remember_token' => null,
                 'setor_id' => '3'
@@ -43,7 +43,7 @@ class UsuariosTableSeeder extends Seeder
                 'nome' => 'Johnny',
                 'sobrenome' => 'Silva',
                 'email' => 'ragnar@gmail.com.br',
-                'password' => '$2y$10$eKEMc1CkO5HWFziGE5VONO9lAPc3swzIDswNfNprIOHyxN4TFkQz6',
+                'password' => bcrypt('102030'),
                 'status_id' => '1',
                 'remember_token' => null,
                 'setor_id' => '1'
@@ -52,7 +52,7 @@ class UsuariosTableSeeder extends Seeder
                 'nome' => 'Douglas',
                 'sobrenome' => 'Avilla',
                 'email' => 'up@gmail.com.br',
-                'password' => '$2y$10$eKEMc1CkO5HWFziGE5VONO9lAPc3swzIDswNfNprIOHyxN4TFkQz6',
+                'password' => bcrypt('102030'),
                 'status_id' => '1',
                 'remember_token' => null,
                 'setor_id' => '1'
@@ -61,7 +61,7 @@ class UsuariosTableSeeder extends Seeder
                 'nome' => 'Kadu',
                 'sobrenome' => 'Aono',
                 'email' => 'kadu@gmail.com.br',
-                'password' => '$2y$10$eKEMc1CkO5HWFziGE5VONO9lAPc3swzIDswNfNprIOHyxN4TFkQz6',
+                'password' => bcrypt('102030'),
                 'status_id' => '1',
                 'remember_token' => null,
                 'setor_id' => '1'

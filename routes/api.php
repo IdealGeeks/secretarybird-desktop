@@ -26,5 +26,5 @@ Route::group(['namespace' => 'Api', 'middleware' => [\App\Http\Middleware\Authen
  * Rotas vindas de api liberadas por CORS [default => '*']
  */
 Route::group(['middleware' => [\App\Http\Middleware\AddHeaders::class]], function () {
-
+    Route::post('/login', 'Api\LoginController@login')->name('login');
 });
