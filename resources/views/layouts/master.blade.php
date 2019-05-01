@@ -64,38 +64,40 @@
                 <div class="collapse navbar-collapse justify-content-end" id="navigation">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="nc-icon nc-bell-55"></i>
-                                <p>
-                                    <span class="d-lg-none d-md-block">Notificações</span>
-                                </p>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-animated profile-dropdown" x-placement="bottom-end">
-                                @include('admin.elements.notifications')
+                            <div class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" id="dropdownNotifications" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="nc-icon nc-bell-55"></i>
+                                    <p>
+                                        <span class="d-lg-none d-md-block">Notificações</span>
+                                    </p>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownNotifications" x-placement="bottom-end">
+                                    @include('admin.elements.notifications')
+                                </div>
                             </div>
                         </li>
-                        <li class="nav-item btn-rotate dropdown-user">
-                            <a href="#" class="nav-link dropdown-toggle nav-user" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <p>
-                                    <img src="{{ asset('images/user_blank.png') }}" alt="user" class="rounded-circle">
-                                    <span class="ml-1"> {{ \Illuminate\Support\Facades\Auth::guard('admin')->user()->nome }} <i class="mdi mdi-chevron-down"></i> </span>
-                                </p>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-animated profile-dropdown" x-placement="bottom-end">
-                                <div class="dropdown-item noti-title">
-                                    <h6 class="text-overflow m-0">Olá, {{ \Illuminate\Support\Facades\Auth::guard('admin')->user()->nome }}
-                                        !</h6>
-                                </div>
 
-                                <a href="{{route('admin.administradores.edit', \Illuminate\Support\Facades\Auth::guard('admin')->user()->id) }}" class="dropdown-item notify-item link-out">
-                                    <i class="dripicons-user"></i> <span>Conta</span>
+                        <li class="nav-item btn-rotate dropdown-user">
+                            <div class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle nav-user" id="dropdownUser" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span class="ml-1"> {{ \Illuminate\Support\Facades\Auth::guard('admin')->user()->nome }} <i class="mdi mdi-chevron-down"></i> </span>
                                 </a>
-                                <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                    <i class="dripicons-gear"></i> <span>Configurações</span>
-                                </a>
-                                <a href="{{ route('noacl.route.login.logout') }}" class="dropdown-item notify-item">
-                                    <i class="dripicons-power"></i> <span>Sair</span>
-                                </a>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownUser" x-placement="bottom-end">
+                                    <div class="dropdown-item noti-title">
+                                        <h6 class="text-overflow m-0">Olá, {{ \Illuminate\Support\Facades\Auth::guard('admin')->user()->nome }}
+                                            !</h6>
+                                    </div>
+                                    <div class="dropdown-divider"></div>
+                                    <a href="{{route('admin.administradores.edit', \Illuminate\Support\Facades\Auth::guard('admin')->user()->id) }}" class="dropdown-item notify-item link-out">
+                                        <i class="dripicons-user"></i> <span>Conta</span>
+                                    </a>
+                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                        <i class="dripicons-gear"></i> <span>Configurações</span>
+                                    </a>
+                                    <a href="{{ route('noacl.route.login.logout') }}" class="dropdown-item notify-item">
+                                        <i class="dripicons-power"></i> <span>Sair</span>
+                                    </a>
+                                </div>
                             </div>
                         </li>
                     </ul>

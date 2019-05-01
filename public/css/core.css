@@ -117,7 +117,6 @@ a.header-icon:hover {
 .navbar-custom {
     margin: 0 15px;
     min-height: 56px;
-    font-family: "Montserrat Alternates", "Helvetica Neue", Arial, sans-serif;
 }
 .navbar-custom .nav-link {
     line-height: 40px;
@@ -131,6 +130,7 @@ a.header-icon:hover {
 .navbar-custom .nav-item {
     float: left;
     display: inline-block;
+    padding: 8px 0px;
 }
 
 .navbar-custom .dropdown-menu-right {
@@ -563,14 +563,14 @@ a.header-icon:hover {
 }
 
 .navbar-custom .nav-link {
-    line-height: 50px;
+    line-height: 28px;
     color: rgba(255,255,255,.8);
     height: 35px;
     padding: 6px 10px;
     margin: 0;
 }
 .navbar-custom .nav-link.nav-user {
-    padding: 10px;
+    line-height: 37px;
 }
 
 .navbar-custom .dropdown-toggle:after {
@@ -602,6 +602,14 @@ a.header-icon:hover {
     top: 100%!important;
     right: 0!important;
     left: auto!important
+}
+.navbar-nav .dropdown-menu:before, .dropdown .dropdown-menu[x-placement="bottom-start"]:before, .dropdown .dropdown-menu[x-placement="bottom-end"]:before, .card.card-just-text .dropdown .dropdown-menu:before, .card-just-text .dropdown .dropdown-menu:before, .dropdown-btn .dropdown-menu:before,
+.navbar-nav .dropdown-menu:after, .dropdown .dropdown-menu[x-placement="bottom-start"]:after, .dropdown .dropdown-menu[x-placement="bottom-end"]:after, .card.card-just-text .dropdown .dropdown-menu:after, .card-just-text .dropdown .dropdown-menu:after, .dropdown-btn .dropdown-menu:after,
+#topnav .navigation-menu>li .submenu:before {
+    display: none;
+}
+.dropdown-menu {
+    margin-top: 5px;
 }
 
 #topnav .navigation-menu>li.has-submenu:after {
@@ -655,7 +663,7 @@ a.header-icon:hover {
         transition: 0.2s;
     }
     #topnav .navigation-menu>li .submenu {
-         margin-top: 0;
+        margin-top: 0;
     }
 
     #topnav .navigation-menu>li.has-submenu:after {

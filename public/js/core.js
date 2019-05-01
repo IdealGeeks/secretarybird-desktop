@@ -8,6 +8,7 @@ $(document).ready(function () {
 
     setTimeout(function () {
         $('body').addClass('shown');
+        $('[data-toggle="dropdown"]').trigger('click').trigger('blur');
     }, 100);
 
     $(document).on('click', 'a.link-out', function (e) {
