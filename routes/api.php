@@ -27,4 +27,5 @@ Route::group(['namespace' => 'Api', 'middleware' => [\App\Http\Middleware\Authen
  */
 Route::group(['middleware' => [\App\Http\Middleware\AddHeaders::class]], function () {
     Route::post('/login', 'Api\LoginController@login')->name('login');
+    Route::post('/cadastro','Api\CadastroController@cadastro')->name('cadastro');
 });

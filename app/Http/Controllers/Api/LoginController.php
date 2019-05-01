@@ -16,7 +16,7 @@ class LoginController extends Controller
     public function login(Request $request)
     {
         $request->token;
-        $token = 'secretary' . date('dmY');
+        $token = 'secretaryDiaDoTrabalhador';
         if ($request->token == md5($token)) {
             if (Auth::guard('web')->attempt([
                 'email' => $request->email,
