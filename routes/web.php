@@ -127,6 +127,9 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => [\App
             Route::get('/{id}/editar', 'VisitasController@edit')->name('visitas.edit');
             Route::get('/cadastro', 'VisitasController@create')->name('visitas.create');
             Route::get('/lixeira', 'VisitasController@trashed')->name('visitas.trashed');
+            Route::delete('/delete/{id}', 'VisitasController@destroy')->name('visitas.destroy');
+            Route::get('/{id}/restaura', 'VisitasController@restore')->name('visitas.restore');
+            Route::delete('/{id}/forceDelete', 'VisitasController@forceDelete')->name('visitas.forceDelete');
         });
 
         //Empresas
@@ -135,6 +138,9 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => [\App
             Route::get('/{id}/editar', 'EmpresasController@edit')->name('empresas.edit');
             Route::get('/cadastro', 'EmpresasController@create')->name('empresas.create');
             Route::get('/lixeira', 'EmpresasController@trashed')->name('empresas.trashed');
+            Route::delete('/delete/{id}', 'EmpresasController@destroy')->name('empresas.destroy');
+            Route::get('/{id}/restaura', 'EmpresasController@restore')->name('empresas.restore');
+            Route::delete('/{id}/forceDelete', 'EmpresasController@forceDelete')->name('empresas.forceDelete');
         });
 
         //Setores
@@ -143,6 +149,9 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => [\App
             Route::get('/{id}/editar', 'SetoresController@edit')->name('setores.edit');
             Route::get('/cadastro', 'SetoresController@create')->name('setores.create');
             Route::get('/lixeira', 'SetoresController@trashed')->name('setores.trashed');
+            Route::delete('/delete/{id}', 'SetoresController@destroy')->name('setores.destroy');
+            Route::get('/{id}/restaura', 'SetoresController@restore')->name('setores.restore');
+            Route::delete('/{id}/forceDelete', 'SetoresController@forceDelete')->name('setores.forceDelete');
         });
     });
 });

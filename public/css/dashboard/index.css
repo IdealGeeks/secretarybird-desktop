@@ -1,0 +1,30 @@
+.wrapper {
+    min-height: 90vh;
+    padding-top: 90px;
+}
+
+.form-wizard {
+    padding: 25px;
+    font-size: 16px;
+    font-weight: 300;
+    color: #888;
+    line-height: 30px;
+    text-align: center;
+}
+.form-wizard h3 {
+    font-size: 34px;
+    font-weight: 300;
+    color: var(--theme-color1);
+    line-height: 30px;
+    margin-top: 0;
+    margin-bottom: 5px;
+    position: relative;
+}
+.form-wizard h3 span {
+    font-family: "Montserrat Alternates", "Helvetica Neue", Arial, sans-serif;
+    font-weight: 400;
+}
+.form-wizard .subtitleStep {
+    font-size: 20px;
+    margin-top: 10px;
+}

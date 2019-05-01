@@ -5,14 +5,9 @@
     <div class="row">
         <div class="col-md-12">
             <div class="toolbar row mb-3">
-                <form action="" method="get" class="col-xs-12 col-sm-12 col-md-12 col-lg-8">
+                <form action="" method="get" class="col-xs-12 col-sm-12 col-md-12 col-lg-9">
                     @include('admin.elements.filters.searchbar')
                 </form>
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-1">
-                    <a href="{{ route('admin.administradores.index') }}" class="btn btn-outline-danger btn-toolbar addAction text-uppercase d-block" data-toggle="tooltip" title="Limpar pesquisa">
-                        <i class="mdi mdi-filter-remove"></i>
-                    </a>
-                </div>
                 @can('acl.view', 'admin.administradores.create')
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-2">
                         <a href="{{ route('admin.administradores.create') }}" class="btn btn-outline-success btn-toolbar addAction text-uppercase d-block" data-toggle="tooltip" title="Novo">
@@ -54,11 +49,11 @@
                                     {{ Form::open(['route' => ['admin.administradores.destroy', $administrador->id], 'class' => 'confirmDelete']) }}
                                     <div class="btn-group">
                                         @can('acl.view', 'admin.administradores.edit')
-                                            <a href="{{route('admin.administradores.edit', $administrador->id)}}" class="btn btn-outline-primary" data-toggle="tooltip" title="Editar"><i class="mdi mdi-pencil"></i></a>
+                                            <a href="{{route('admin.administradores.edit', $administrador->id)}}" class="btn btn-sm btn-outline-primary" data-toggle="tooltip" title="Editar"><i class="mdi mdi-pencil"></i></a>
                                         @endcan
                                         @can('acl.view', 'admin.administradores.destroy')
                                         {{ Form::hidden('_method', 'DELETE') }}
-                                        <button class="btn btn-danger" type="submit" data-toggle="tooltip" title="Remover">
+                                        <button class="btn btn-sm btn-outline-danger" type="submit" data-toggle="tooltip" title="Remover">
                                             <i class="mdi mdi-delete"></i>
                                         </button>
                                         @endcan

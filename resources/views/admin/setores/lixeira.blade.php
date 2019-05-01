@@ -5,14 +5,9 @@
     <div class="row">
         <div class="col-md-12">
             <div class="toolbar row mb-3">
-                <form action="" method="get" class="col-xs-12 col-sm-12 col-md-12 col-lg-8">
+                <form action="" method="get" class="col-xs-12 col-sm-12 col-md-12 col-lg-9">
                     @include('admin.elements.filters.searchbar')
                 </form>
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-1">
-                    <a href="{{ route('admin.usuarios.trashed') }}" class="btn btn-outline-danger btn-toolbar addAction text-uppercase d-block" data-toggle="tooltip" title="Limpar pesquisa">
-                        <i class="mdi mdi-filter-remove"></i>
-                    </a>
-                </div>
                 @can('acl.view', 'admin.usuarios.index')
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-3">
                         <a href="{{ route('admin.usuarios.index') }}" class="btn btn-outline-dark btn-toolbar addAction text-uppercase d-block" data-toggle="tooltip" title="Lista de usuários">
