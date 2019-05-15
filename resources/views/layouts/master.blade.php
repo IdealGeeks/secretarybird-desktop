@@ -88,7 +88,7 @@
                                             !</h6>
                                     </div>
                                     <div class="dropdown-divider"></div>
-                                    <a href="{{route('admin.administradores.edit', \Illuminate\Support\Facades\Auth::guard('admin')->user()->id) }}" class="dropdown-item notify-item link-out">
+                                    <a href="{{route('admin.usuarios.edit', \Illuminate\Support\Facades\Auth::guard('admin')->user()->id) }}" class="dropdown-item notify-item link-out">
                                         <i class="dripicons-user"></i> <span>Conta</span>
                                     </a>
                                     <a href="javascript:void(0);" class="dropdown-item notify-item">

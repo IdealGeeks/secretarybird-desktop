@@ -1,7 +1,6 @@
 @extends('layouts.master')
 
-@section('h1', 'Usuários/Clientes')
-
+@section('h1', 'Usuários')
 @section('content')
     <div class="row">
         <div class="col-md-12">
@@ -33,6 +32,7 @@
                             <th>#</th>
                             <th>Nome</th>
                             <th>Email</th>
+                            <th>Grupo</th>
                             <th>Status</th>
                             <th></th>
                         </tr>
@@ -43,6 +43,7 @@
                                 <td class="align-middle">{{ $usuario->id }}</td>
                                 <td class="align-middle" nowrap>{{ $usuario->getFullName() }}</td>
                                 <td class="align-middle">{{ $usuario->email }}</td>
+                                <td class="align-middle">{{ $usuario->grupos()->first()->titulo }}</td>
                                 <td class="align-middle">{{ $usuario->status()->first()->titulo }}</td>
                                 <td class="align-middle text-right">
                                     {{ Form::open(['route' => ['admin.usuarios.destroy', $usuario->id], 'class' => 'confirmDelete']) }}
@@ -51,10 +52,10 @@
                                             <a href="{{route('admin.usuarios.edit', $usuario->id)}}" class="btn btn-sm btn-outline-primary" data-toggle="tooltip" title="Editar"><i class="mdi mdi-pencil"></i></a>
                                         @endcan
                                         @can('acl.view', 'admin.usuarios.destroy')
-                                            {{ Form::hidden('_method', 'DELETE') }}
-                                            <button class="btn btn-sm btn-outline-danger" type="submit" data-toggle="tooltip" title="Remover">
-                                                <i class="mdi mdi-delete"></i>
-                                            </button>
+                                        {{ Form::hidden('_method', 'DELETE') }}
+                                        <button class="btn btn-sm btn-outline-danger" type="submit" data-toggle="tooltip" title="Remover">
+                                            <i class="mdi mdi-delete"></i>
+                                        </button>
                                         @endcan
                                     </div>
                                     {{ Form::close() }}
@@ -71,7 +72,7 @@
         <div class="col-md-12">{{ $usuarios->appends(request()->query())->links() }}</div>
         <div class="col-md-12">
             Página {{$usuarios->currentPage()}} de {{$usuarios->lastPage()}},
-            Total de {{$usuarios->total()}} registros.
+            total de {{$usuarios->total()}} registros
         </div>
     </div>
 @endsection

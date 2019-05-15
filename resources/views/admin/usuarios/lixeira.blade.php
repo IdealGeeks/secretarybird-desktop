@@ -10,7 +10,7 @@
                 </form>
                 @can('acl.view', 'admin.usuarios.index')
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-3">
-                        <a href="{{ route('admin.usuarios.index') }}" class="btn btn-outline-dark btn-toolbar addAction text-uppercase d-block" data-toggle="tooltip" title="Lista de usuários">
+                        <a href="{{ route('admin.usuarios.index') }}" class="btn btn-outline-dark btn-toolbar addAction text-uppercase d-block" data-toggle="tooltip" title="Lista de usuarios">
                             <i class="mdi mdi-format-list-numbers mr-2"></i> <span class="hidden-xs hidden-sm">Usuários</span>
                         </a>
                     </div>

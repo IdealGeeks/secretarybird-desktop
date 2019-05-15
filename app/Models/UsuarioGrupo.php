@@ -10,36 +10,36 @@ namespace App\Models;
 use Reliese\Database\Eloquent\Model as Eloquent;
 
 /**
- * Class AdministradorGrupo
+ * Class UsuarioGrupo
  * 
  * @property int $id
- * @property int $administrador_id
+ * @property int $usuario_id
  * @property int $grupo_id
  * 
- * @property \App\Models\Administrador $administrador
+ * @property \App\Models\Usuario $usuario
  * @property \App\Models\Grupo $grupo
  *
  * @package App\Models
  */
-class AdministradorGrupo extends Eloquent
+class UsuarioGrupo extends Eloquent
 {
 	public $timestamps = false;
 
 	protected $casts = [
-		'administrador_id' => 'int',
+		'usuario_id' => 'int',
 		'grupo_id' => 'int'
 	];
 
 	protected $fillable = [
-		'administrador_id',
+		'usuario_id',
 		'grupo_id'
 	];
 
-	protected $table = 'administradores_grupos';
+	protected $table = 'usuarios_grupos';
 
-	public function administrador()
+	public function usuario()
 	{
-		return $this->belongsTo(\App\Models\Administrador::class, 'administrador_id');
+		return $this->belongsTo(\App\Models\Usuario::class, 'usuario_id');
 	}
 
 	public function grupo()

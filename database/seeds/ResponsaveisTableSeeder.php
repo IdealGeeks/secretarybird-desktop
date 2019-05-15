@@ -14,11 +14,11 @@ class ResponsaveisTableSeeder extends Seeder
         \Illuminate\Support\Facades\DB::table('responsaveis')->insert([
             [
                 'empresa_id' => '1',
-                'usuario_id' => '5'
+                'usuario_id' => '2'
             ],
             [
                 'empresa_id' => '2',
-                'usuario_id' => '6',
+                'usuario_id' => '3',
             ]
         ]);
     }

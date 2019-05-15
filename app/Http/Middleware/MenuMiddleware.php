@@ -61,8 +61,8 @@ class MenuMiddleware
     public function rotasPorDispositivos()
     {
         if (Agent::isMobile() || Agent::isTablet()) {
-            return Auth::guard('admin')->user()->administradores_permissoes()->where('visivel_menu', 1)->where('mobile', 1)->orderBy('label', 'ASC')->get();
+            return Auth::guard('admin')->user()->usuarios_permissoes()->where('visivel_menu', 1)->where('mobile', 1)->orderBy('label', 'ASC')->get();
         }
-        return Auth::guard('admin')->user()->administradores_permissoes()->where('visivel_menu', 1)->orderBy('label', 'ASC')->get();
+        return Auth::guard('admin')->user()->usuarios_permissoes()->where('visivel_menu', 1)->orderBy('label', 'ASC')->get();
     }
 }

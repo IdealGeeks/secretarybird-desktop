@@ -13,16 +13,22 @@ class TipoVisitasTableSeeder extends Seeder
     {
         \Illuminate\Support\Facades\DB::table('tipos_visitas')->insert([
             [
-                'titulo' => 'Entrevista',
+                'titulo' => 'Delivery',
             ],
             [
-                'titulo' => 'Entrega',
+                'titulo' => 'Entrevista',
             ],
             [
                 'titulo' => 'Reunião',
             ],
             [
-                'titulo' => 'Não agendado',
+                'titulo' => 'Fornecedor',
+            ],
+            [
+                'titulo' => 'Encomendas',
+            ],
+            [
+                'titulo' => 'Outros',
             ],
         ]);
     }

@@ -17,8 +17,14 @@ class GruposTableSeeder extends Seeder
             ['titulo' => 'Usuários']
         ]);
 
-        \Illuminate\Support\Facades\DB::table('administradores_grupos')->insert([
-            ['administrador_id' => 1, 'grupo_id' => 1],
+        \Illuminate\Support\Facades\DB::table('usuarios_grupos')->insert([
+            ['usuario_id' => 1, 'grupo_id' => 1],
+            ['usuario_id' => 2, 'grupo_id' => 2],
+            ['usuario_id' => 3, 'grupo_id' => 2],
+            ['usuario_id' => 4, 'grupo_id' => 3],
+            ['usuario_id' => 5, 'grupo_id' => 3],
+            ['usuario_id' => 6, 'grupo_id' => 3],
+            ['usuario_id' => 7, 'grupo_id' => 3],
         ]);
     }
 }

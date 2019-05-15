@@ -19,7 +19,7 @@ use Reliese\Database\Eloquent\Model as Eloquent;
  * @property \Carbon\Carbon $updated_at
  * @property \Carbon\Carbon $deleted_at
  *
- * @property \Illuminate\Database\Eloquent\Collection $administradores
+ * @property \Illuminate\Database\Eloquent\Collection $usuarios
  *
  * @package App\Models
  */
@@ -39,9 +39,9 @@ class Grupo extends Eloquent
         'deleted_at',
     ];
 
-    public function administradores()
+    public function usuarios()
     {
-        return $this->belongsToMany(\App\Models\Administrador::class, 'administradores_grupos', 'grupo_id', 'administrador_id');
+        return $this->belongsToMany(\App\Models\Usuario::class, 'usuarios_grupos', 'grupo_id', 'usuario_id');
     }
 
 }

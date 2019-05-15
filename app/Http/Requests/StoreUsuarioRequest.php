@@ -30,6 +30,7 @@ class StoreUsuarioRequest extends FormRequest
                 'nome' => 'required|max:50',
                 'sobrenome' => 'required|max:170',
                 'email' => 'required|max:200|email|unique:usuarios,email',
+                'grupos.*' => 'required',
                 'status_id' => 'required',
                 'password' => 'required|min:6|confirmed',
                 'password_confirmation' => 'required|min:6'

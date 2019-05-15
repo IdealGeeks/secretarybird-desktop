@@ -33,11 +33,6 @@ class Status extends Eloquent
 
     protected $table = 'status';
 
-    public function administradores()
-    {
-        return $this->hasMany(\App\Models\Administrador::class, 'status_id');
-    }
-
     public function usuarios()
     {
         return $this->hasMany(\App\Models\Usuario::class, 'status_id');

@@ -16,8 +16,8 @@ class ControleAcessoService
     {
         $selecionadas = [];
         if (!empty($id)) {
-            $selecionadas = Permissao::where('visivel_user', 1)->whereHas('administrador', function ($query) use ($id) {
-                $query->where('administrador_id', $id);
+            $selecionadas = Permissao::where('visivel_user', 1)->whereHas('usuario', function ($query) use ($id) {
+                $query->where('usuario_id', $id);
             })->pluck('id')->toArray();
         }
         $permissoes = Permissao::where('visivel_user', 1)->whereNull('permissao_id')->orderBy('id')->get();
@@ -45,7 +45,7 @@ class ControleAcessoService
     static public function controleAcesso($rota)
     {
         if (Auth::guard('admin')->check()) {
-            if (Auth::guard('admin')->user()->administradores_permissoes()->where('rota', $rota)->count() == 1) {
+            if (Auth::guard('admin')->user()->usuarios_permissoes()->where('rota', $rota)->count() == 1) {
                 return true;
             }
         }

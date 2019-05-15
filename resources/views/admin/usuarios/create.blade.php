@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('h1',' Adicionar Usuário')
+@section('h1', 'Adicionar Usuário')
 
 @section('content')
     <div class=" form-header-classic materialize">
@@ -8,6 +8,12 @@
         <fieldset class='informacoes'>
             <div class="card-box">
                 @include('admin.usuarios.blocks.informacoes')
+            </div>
+        </fieldset>
+
+        <fieldset class='permissoes'>
+            <div class="card-box">
+                @include('admin.usuarios.blocks.permissoes')
             </div>
         </fieldset>
 

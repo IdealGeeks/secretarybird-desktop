@@ -12,38 +12,38 @@ use Reliese\Database\Eloquent\Model as Eloquent;
 /**
  * Class UserRotaPermissao
  * 
- * @property int $administrador_id
+ * @property int $usuario_id
  * @property int $permissao_id
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
  * 
  * @property \App\Models\Permissao $permissao
- * @property \App\Models\Administrador $administrador
+ * @property \App\Models\Usuario $usuario
  *
  * @package App\Models
  */
-class AdministradorPermissao extends Eloquent
+class UsuarioPermissao extends Eloquent
 {
 
 	protected $casts = [
-		'administrador_id' => 'int',
+		'usuario_id' => 'int',
 		'permissao_id' => 'int'
 	];
 
 	protected $fillable = [
-		'administrador_id',
+		'usuario_id',
 		'permissao_id'
 	];
 
-	protected $table = 'administradores_permissoes';
+	protected $table = 'usuarios_permissoes';
 
 	public function permissao()
 	{
 		return $this->belongsTo(\App\Models\Permissao::class, 'permissao_id');
 	}
 
-	public function administrador()
+	public function usuario()
 	{
-		return $this->belongsTo(\App\Models\Administrador::class, 'administrador_id');
+		return $this->belongsTo(\App\Models\Usuario::class, 'usuario_id');
 	}
 }

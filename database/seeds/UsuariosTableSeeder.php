@@ -13,12 +13,19 @@ class UsuariosTableSeeder extends Seeder
     {
         \Illuminate\Support\Facades\DB::table('usuarios')->insert([
             [
+                'nome' => 'Web Master',
+                'sobrenome' => 'Developer',
+                'email' => 'admin@admin.com.br',
+                'password' => bcrypt('102030'),
+                'status_id' => 1,
+                'setor_id' => '1'
+            ],
+            [
                 'nome' => 'Vinicius',
                 'sobrenome' => 'Shirakawabe',
                 'email' => 'gordinho@gmail.com.br',
                 'password' => bcrypt('102030'),
                 'status_id' => '1',
-                'remember_token' => null,
                 'setor_id' => '1'
             ],
             [
@@ -27,7 +34,6 @@ class UsuariosTableSeeder extends Seeder
                 'email' => 'pedrao@gmail.com.br',
                 'password' => bcrypt('102030'),
                 'status_id' => '1',
-                'remember_token' => null,
                 'setor_id' => '2'
             ],
             [
@@ -36,7 +42,6 @@ class UsuariosTableSeeder extends Seeder
                 'email' => 'simba@gmail.com.br',
                 'password' => bcrypt('102030'),
                 'status_id' => '1',
-                'remember_token' => null,
                 'setor_id' => '3'
             ],
             [
@@ -45,7 +50,6 @@ class UsuariosTableSeeder extends Seeder
                 'email' => 'ragnar@gmail.com.br',
                 'password' => bcrypt('102030'),
                 'status_id' => '1',
-                'remember_token' => null,
                 'setor_id' => '1'
             ],
             [
@@ -54,7 +58,6 @@ class UsuariosTableSeeder extends Seeder
                 'email' => 'up@gmail.com.br',
                 'password' => bcrypt('102030'),
                 'status_id' => '1',
-                'remember_token' => null,
                 'setor_id' => '1'
             ],
             [
@@ -63,7 +66,6 @@ class UsuariosTableSeeder extends Seeder
                 'email' => 'kadu@gmail.com.br',
                 'password' => bcrypt('102030'),
                 'status_id' => '1',
-                'remember_token' => null,
                 'setor_id' => '1'
             ],
         ]);

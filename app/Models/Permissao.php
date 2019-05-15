@@ -48,9 +48,9 @@ class Permissao extends Eloquent
         'mobile'
     ];
 
-    public function administrador()
+    public function usuario()
     {
-        return $this->belongsToMany(\App\Models\Administrador::class, 'administradores_permissoes', 'permissao_id')
+        return $this->belongsToMany(\App\Models\Usuario::class, 'usuarios_permissoes', 'permissao_id')
             ->withPivot('id')
             ->withTimestamps();
     }

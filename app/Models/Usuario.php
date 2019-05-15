@@ -2,16 +2,16 @@
 
 /**
  * Created by Reliese Model.
- * Date: Thu, 29 Nov 2018 03:30:46 +0000.
+ * Date: Sat, 29 Dec 2018 18:01:52 +0000.
  */
 
 namespace App\Models;
 
-use Carbon\Carbon;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Jenssegers\Agent\Facades\Agent;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use App\Notifications\MailResetPasswordToken;
+use App\Notifications\AdminMailResetPasswordToken;
 
 /**
  * Class Usuario
@@ -19,10 +19,15 @@ use App\Notifications\MailResetPasswordToken;
  * @property int $id
  * @property string $nome
  * @property string $sobrenome
+ * @property string $password
  * @property string $email
- * @property string $senha
+ * @property int $status_id
+ * @property string $remember_token
+ * @property string $deleted_at
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
+ *
+ * @property \Illuminate\Database\Eloquent\Collection $grupos
  *
  * @package App\Models
  */
@@ -30,24 +35,30 @@ class Usuario extends Authenticatable
 {
     use Notifiable, SoftDeletes;
 
-    protected $guarded = 'web';
+    protected $guarded = 'admin';
 
     protected $casts = [
-        'status_id' => 'int',
+        'status_id' => 'int'
+    ];
+
+    protected $hidden = [
+        'password',
+        'remember_token'
     ];
 
     protected $fillable = [
         'nome',
         'sobrenome',
-        'email',
         'password',
+        'email',
         'status_id',
-        'setor_id',
+        'setor_id'
     ];
 
-    protected $hidden = [
-        'password',
-        'remember_token',
+    protected $dates = [
+        'created_at',
+        'updated_at',
+        'deleted_at',
     ];
 
     protected $table = 'usuarios';
@@ -57,12 +68,15 @@ class Usuario extends Authenticatable
      */
     public function sendPasswordResetNotification($token)
     {
-        $this->notify(new MailResetPasswordToken($token));
+        $this->notify(new AdminMailResetPasswordToken($token));
     }
 
-    public function status()
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function grupos()
     {
-        return $this->belongsTo(\App\Models\Status::class);
+        return $this->belongsToMany(\App\Models\Grupo::class, 'usuarios_grupos', 'usuario_id', 'grupo_id');
     }
 
     public function getFullName()
@@ -74,4 +88,39 @@ class Usuario extends Authenticatable
     {
         $this->attributes['password'] = (!empty($password) ? bcrypt($password) : $this->attributes['password']);
     }
+
+    public function status()
+    {
+        return $this->belongsTo(\App\Models\Status::class);
+    }
+
+    public function usuarios_permissoes()
+    {
+        return $this->belongsToMany(\App\Models\Permissao::class, 'usuarios_permissoes', 'usuario_id', 'permissao_id');
+    }
+
+    /**
+     * Valida permissões do usuário logado
+     * Verificando em qual dispositivo ele está e dando as devidas permissões para tais
+     * @param $rota_name
+     * @return bool
+     */
+    public function hasPermissao($rota_name)
+    {
+        if (Agent::isMobile() || Agent::isTablet()) {
+            foreach ($this->usuarios_permissoes()->where('mobile', 1)->get() as $permissao) {
+                if ($permissao->rota === $rota_name) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        foreach ($this->usuarios_permissoes()->get() as $permissao) {
+            if ($permissao->rota === $rota_name) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 }

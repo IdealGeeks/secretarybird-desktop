@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAdministradoresPermissoes extends Migration
+class CreateUsuariosPermissoes extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateAdministradoresPermissoes extends Migration
      */
     public function up()
     {
-        Schema::create('administradores_permissoes', function (Blueprint $table) {
-            $table->integer('administrador_id');
+        Schema::create('usuarios_permissoes', function (Blueprint $table) {
+            $table->integer('usuario_id');
             $table->integer('permissao_id');
             $table->timestamps();
-            $table->foreign('administrador_id')->references('id')->on('administradores')->onDelete('CASCADE');
+            $table->foreign('usuario_id')->references('id')->on('usuarios')->onDelete('CASCADE');
             $table->foreign('permissao_id')->references('id')->on('permissoes')->onDelete('CASCADE');
         });
     }
@@ -29,6 +29,6 @@ class CreateAdministradoresPermissoes extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('administradores_permissoes');
+        Schema::dropIfExists('usuarios_permissoes');
     }
 }

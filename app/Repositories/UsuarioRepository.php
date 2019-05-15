@@ -14,7 +14,7 @@ class UsuarioRepository extends BaseRepository
      * @var Usuario
      */
     public $model;
-
+    
     /**
      * UsuarioRepository constructor.
      * @param Usuario $Usuario
@@ -23,5 +23,4 @@ class UsuarioRepository extends BaseRepository
     {
         $this->model = $Usuario;
     }
-
 }

@@ -1,4 +1,4 @@
-@can('acl.view', 'admin.administradores.edit')
+@can('acl.view', 'admin.usuarios.edit')
     <fieldset class='permissoes'>
         <div class="card-box">
             <h5 class="header-title">Permissões de acesso</h5>

@@ -67,19 +67,6 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => [\App
         Route::get('/permissoes', 'PermissoesController@index')->name('permissoes.index');
         Route::post('/permissoes/atualizar', 'PermissoesController@update')->name('permissoes.update');
 
-        //Usuários Administradores ACL
-        Route::prefix('/administradores')->group(function () {
-            Route::get('/', 'AdministradoresController@index')->name('administradores.index');
-
-            Route::get('/lexeira', 'AdministradoresController@trashed')->name('administradores.trashed');
-            Route::delete('/delete/{id}', 'AdministradoresController@destroy')->name('administradores.destroy');
-            Route::get('/{administrador}/restaura', 'AdministradoresController@restore')->name('administradores.restore');
-            Route::delete('/{administrador}/forceDelete', 'AdministradoresController@forceDelete')->name('administradores.forceDelete');
-
-            Route::match(['post', 'get'], '/{id}/editar', 'AdministradoresController@edit')->name('administradores.edit');
-            Route::match(['post', 'get'], '/cadastro', 'AdministradoresController@create')->name('administradores.create');
-        });
-
         //Grupos
         Route::prefix('/grupos')->group(function () {
             Route::get('/', 'GruposController@index')->name('grupos.index');

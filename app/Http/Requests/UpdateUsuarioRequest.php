@@ -28,6 +28,7 @@ class UpdateUsuarioRequest extends FormRequest
                 'nome' => 'required|max:50',
                 'sobrenome' => 'required|max:170',
                 'email' => 'required|max:200|email|unique:usuarios,email,' . $this->request->get('id'),
+                'grupos.*' => 'required',
                 'status_id' => 'required',
                 'password' => 'nullable|min:6|confirmed',
                 'password_confirmation' => 'nullable|required_with:password|min:6'

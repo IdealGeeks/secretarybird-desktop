@@ -31,7 +31,7 @@
                         <tr>
                             <th>#</th>
                             <th>Nome</th>
-                            <th>Qtd. de administradores</th>
+                            <th>Qtd. de usuarios</th>
                             <th></th>
                         </tr>
                         </thead>
@@ -40,7 +40,7 @@
                             <tr>
                                 <td class="align-middle">{{ $grupo->id }}</td>
                                 <td class="align-middle" nowrap>{{ $grupo->titulo }}</td>
-                                <td class="align-middle" nowrap>{{ $grupo->administradores()->count() }}</td>
+                                <td class="align-middle" nowrap>{{ $grupo->usuarios()->count() }}</td>
                                 <td class="align-middle text-right">
                                     {{ Form::open(['route' => ['admin.grupos.destroy', $grupo->id], 'class' => 'confirmDelete']) }}
                                     <div class="btn-group">
