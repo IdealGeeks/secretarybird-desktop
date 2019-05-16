@@ -20,6 +20,7 @@ use Reliese\Database\Eloquent\Model as Eloquent;
  * @property \Carbon\Carbon $deleted_at
  *
  * @property \Illuminate\Database\Eloquent\Collection $usuarios
+ * @property \Illuminate\Database\Eloquent\Collection $grupos_permissoes
  *
  * @package App\Models
  */
@@ -42,6 +43,11 @@ class Grupo extends Eloquent
     public function usuarios()
     {
         return $this->belongsToMany(\App\Models\Usuario::class, 'usuarios_grupos', 'grupo_id', 'usuario_id');
+    }
+
+    public function grupos_permissoes()
+    {
+        return $this->belongsToMany(\App\Models\Permissao::class, 'grupos_permissoes', 'grupo_id', 'permissao_id');
     }
 
 }

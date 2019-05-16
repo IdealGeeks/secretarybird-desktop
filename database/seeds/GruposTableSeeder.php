@@ -26,5 +26,13 @@ class GruposTableSeeder extends Seeder
             ['usuario_id' => 6, 'grupo_id' => 3],
             ['usuario_id' => 7, 'grupo_id' => 3],
         ]);
+
+        $super_grupo = [];
+
+        for ($i = 1; $i <= 47; $i++) {
+            $super_grupo[$i] = ['grupo_id' => 1, 'permissao_id' => $i];
+        }
+
+        \DB::table('grupos_permissoes')->insert($super_grupo);
     }
 }

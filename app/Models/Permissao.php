@@ -23,6 +23,7 @@ use Reliese\Database\Eloquent\Model as Eloquent;
  * @property \Carbon\Carbon $updated_at
  *
  * @property \Illuminate\Database\Eloquent\Collection $users
+ * @property \Illuminate\Database\Eloquent\Collection $grupo
  *
  * @package App\Models
  */
@@ -51,6 +52,13 @@ class Permissao extends Eloquent
     public function usuario()
     {
         return $this->belongsToMany(\App\Models\Usuario::class, 'usuarios_permissoes', 'permissao_id')
+            ->withPivot('id')
+            ->withTimestamps();
+    }
+
+    public function grupo()
+    {
+        return $this->belongsToMany(\App\Models\Grupo::class, 'grupos_permissoes', 'permissao_id')
             ->withPivot('id')
             ->withTimestamps();
     }

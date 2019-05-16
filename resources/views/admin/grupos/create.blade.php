@@ -10,6 +10,12 @@
                 @include('admin.grupos.blocks.formulario')
             </div>
         </fieldset>
+
+        <fieldset class='permissoes'>
+            <div class="card-box">
+                @include('admin.usuarios.blocks.permissoes')
+            </div>
+        </fieldset>
         <div class="form-wizard-buttons sticky-button">
             <button type="submit" class="btn btn-success btn-block btn-small ladda-button">Salvar</button>
         </div>

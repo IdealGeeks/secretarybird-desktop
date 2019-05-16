@@ -31,7 +31,7 @@
                         <tr>
                             <th>#</th>
                             <th>Nome</th>
-                            <th>Qtd. de usuarios</th>
+                            <th>Qtd. de usuários</th>
                             <th></th>
                         </tr>
                         </thead>
@@ -45,11 +45,11 @@
                                     {{ Form::open(['route' => ['admin.grupos.destroy', $grupo->id], 'class' => 'confirmDelete']) }}
                                     <div class="btn-group">
                                         @can('acl.view', 'admin.grupos.edit')
-                                            <a href="{{route('admin.grupos.edit', $grupo->id)}}" class="btn btn-sm btn-outline-primary" data-toggle="tooltip" title="Editar"><i class="mdi mdi-pencil"></i></a>
+                                            <a href="{{route('admin.grupos.edit', $grupo->id)}}" class="btn btn-outline-primary" data-toggle="tooltip" title="Editar"><i class="mdi mdi-pencil"></i></a>
                                         @endcan
                                         @can('acl.view', 'admin.grupos.destroy')
                                             {{ Form::hidden('_method', 'DELETE') }}
-                                            <button class="btn btn-sm btn-outline-danger" type="submit" data-toggle="tooltip" title="Remover">
+                                            <button class="btn btn-danger" type="submit" data-toggle="tooltip" title="Remover">
                                                 <i class="mdi mdi-delete"></i>
                                             </button>
                                         @endcan
@@ -68,12 +68,13 @@
         <div class="col-md-12">{{ $grupos->appends(request()->query())->links() }}</div>
         <div class="col-md-12">
             Página {{$grupos->currentPage()}} de {{$grupos->lastPage()}},
-            total de {{$grupos->total()}} registros
+            mostrando {{$grupos->count()}} resultados de {{$grupos->total()}} no total
         </div>
     </div>
 @endsection
 
 @section('css')
+    <link href="{{ vAsset('idealui/assets/vendor/material-input/css/material-input.css') }}" rel="stylesheet"/>
 @endsection
 
 @section('scripts')

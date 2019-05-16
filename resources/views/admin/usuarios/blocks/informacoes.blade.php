@@ -54,7 +54,7 @@
         <div class="col-4">
             <div class="form-group">
                 {{ Form::label('grupo_id', 'Grupo *') }}
-                {{ Form::select('grupos[grupo_id]', $grupos, (isset($grupo->id) ? $grupo->id : null), [
+                {{ Form::select('grupos[grupo_id]', $grupos, (isset($grupo->id) ? $grupo->id : []), [
                     'id' => 'grupo_id',
                     'class' => 'select2-cont',
                     'placeholder' => '-- Selecione --'

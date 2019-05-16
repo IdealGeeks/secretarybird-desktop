@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Requests\PesquisasRequest;
 use App\Http\Requests\StoreUsuarioRequest;
 use App\Http\Requests\UpdateUsuarioRequest;
+use App\Models\Usuario;
 use App\Repositories\UsuarioRepository;
 use App\Repositories\GrupoRepository;
 use App\Repositories\StatusRepository;
@@ -94,13 +95,14 @@ class UsuariosController extends Controller
             return redirect()->back();
         }
 
-        if ($this->usuarios = $this->usuarios->model()->find($id)) {
+        /** @var Usuario $usuario */
+        if ($usuario = $this->usuarios->model()->find($id)) {
             return view('admin.usuarios.edit', [
                 'grupos' => $this->grupos->model()->pluck('titulo', 'id'),
-                'grupo' => $this->usuarios->grupos()->first(),
-                'usuarios' => $this->usuarios,
+                'grupo' => $usuario->grupos()->first(),
+                'usuarios' => $usuario,
                 'status' => $this->status->model()->pluck('titulo', 'id'),
-                'permissoes' => $controleAcessoService->processaPermissoesArray($id)
+                'permissoes' => $controleAcessoService->processaPermissoesArray($id, 'usuario', 'usuario_id')
             ]);
         }
         return redirect()->route('admin.usuarios.index');

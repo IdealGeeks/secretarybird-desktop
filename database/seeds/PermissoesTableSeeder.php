@@ -659,6 +659,20 @@ class PermissoesTableSeeder extends Seeder
                     'created_at' => '2019-03-22 20:10:23',
                     'updated_at' => '2019-03-25 17:26:18',
                 ),
+            46 =>
+                array (
+                    'id' => 47,
+                    'label' => 'Grupos Permissões',
+                    'controller' => NULL,
+                    'rota' => 'admin.grupos.permissoes',
+                    'permissao_id' => 14,
+                    'icone' => NULL,
+                    'visivel_menu' => 0,
+                    'visivel_user' => 1,
+                    'mobile' => 1,
+                    'created_at' => '2019-03-22 20:10:23',
+                    'updated_at' => '2019-03-25 17:26:18',
+                ),
         ));
     }
 }

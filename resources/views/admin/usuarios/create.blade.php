@@ -11,11 +11,7 @@
             </div>
         </fieldset>
 
-        <fieldset class='permissoes'>
-            <div class="card-box">
-                @include('admin.usuarios.blocks.permissoes')
-            </div>
-        </fieldset>
+        @include('admin.usuarios.blocks.permissoes')
 
         <div class="form-wizard-buttons sticky-button">
             <button type="submit" class="btn btn-success btn-block btn-small ladda-button">Salvar</button>
@@ -28,4 +24,8 @@
 @endsection
 
 @section('scripts')
+    <script>
+        var grupoUrl = '{{route('admin.grupos.permissoes')}}';
+    </script>
+    <script src="{{asset('js/admin/usuarios/grupo_permissoes.js')}}"></script>
 @endsection

@@ -9,15 +9,18 @@ class ControleAcessoService
 {
     /**
      * Processa e retorna lista de permissões, marcando as ativas, segundo o parâmetro "$selecionadas"
+     *
      * @param null $id
+     * @param null $table
+     * @param null $foreing
      * @return array
      */
-    public function processaPermissoesArray($id = null)
+    public function processaPermissoesArray($id = null, $table = null, $foreing = null)
     {
         $selecionadas = [];
         if (!empty($id)) {
-            $selecionadas = Permissao::where('visivel_user', 1)->whereHas('usuario', function ($query) use ($id) {
-                $query->where('usuario_id', $id);
+            $selecionadas = Permissao::where('visivel_user', 1)->whereHas($table, function ($query) use ($id, $foreing) {
+                $query->where($foreing, $id);
             })->pluck('id')->toArray();
         }
         $permissoes = Permissao::where('visivel_user', 1)->whereNull('permissao_id')->orderBy('id')->get();

@@ -18,8 +18,7 @@ use Illuminate\Support\Facades\Route;
 /**
  * Rotas vindas a API autenticada
  */
-Route::group(['namespace' => 'Api', 'middleware' => [\App\Http\Middleware\Authenticate::class, \App\Http\Middleware\AclMiddleware::class,], 'as' => 'api.'], function () {
-
+Route::group(['namespace' => 'Api', 'middleware' => [\App\Http\Middleware\Authenticate::class, \App\Http\Middleware\AclMiddleware::class,\App\Http\Middleware\AddHeaders::class], 'as' => 'api.'], function () {
 });
 
 /**
@@ -27,5 +26,5 @@ Route::group(['namespace' => 'Api', 'middleware' => [\App\Http\Middleware\Authen
  */
 Route::group(['middleware' => [\App\Http\Middleware\AddHeaders::class]], function () {
     Route::post('/login', 'Api\LoginController@login')->name('login');
-    Route::post('/cadastro','Api\CadastroController@cadastro')->name('cadastro');
+//    Route::post('/cadastro','Api\CadastroController@cadastro')->name('cadastro');
 });

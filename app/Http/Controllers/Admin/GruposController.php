@@ -5,7 +5,10 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\GrupoRequest;
 use App\Http\Requests\PesquisasRequest;
+use App\Models\Grupo;
 use App\Repositories\GrupoRepository;
+use App\Services\ControleAcessoService;
+use Illuminate\Http\Request;
 
 class GruposController extends Controller
 {
@@ -19,7 +22,7 @@ class GruposController extends Controller
     {
         parent::__construct();
         $this->middleware('auth:admin');
-
+        /** @var Grupo grupos */
         $this->grupos = $grupoRepository;
     }
 
@@ -39,31 +42,40 @@ class GruposController extends Controller
     }
 
     /**
+     * @param ControleAcessoService $controleAcessoService
      * @param GrupoRequest $grupoRequest
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\View\View
      */
-    public function create(GrupoRequest $grupoRequest)
+    public function create(ControleAcessoService $controleAcessoService, GrupoRequest $grupoRequest)
     {
         if ($grupoRequest->isMethod('post')) {
             if ($grupo = $this->grupos->create($grupoRequest->only($this->grupos->model()->getFillable()))) {
+                $grupo->grupos_permissoes()->sync(array_keys($grupoRequest->permissoes));
                 flash('Grupo criado com sucesso!')->success();
                 return redirect()->route('admin.grupos.index');
             }
             flash('Não foi possível criar o grupo');
             return redirect()->back();
         }
-        return view('admin.grupos.create');
+        return view('admin.grupos.create', [
+            'permissoes' => $controleAcessoService->processaPermissoesArray()
+        ]);
     }
 
     /**
      * @param $id
+     * @param GrupoRequest $grupoRequest
+     * @param ControleAcessoService $controleAcessoService
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\View\View
      */
-    public function edit($id, GrupoRequest $grupoRequest)
+    public function edit($id, GrupoRequest $grupoRequest, ControleAcessoService $controleAcessoService)
     {
         $grupo = $this->grupos->model()->find($id);
         if ($grupoRequest->isMethod('post')) {
-            if ($grupo->update($grupoRequest->all())) {
+            if ($this->grupos->model()->find($id)->update($grupoRequest->only($this->grupos->model()->getFillable()))) {
+                if ($grupoRequest->permissoes) {
+                    $this->grupos->model()->find($id)->grupos_permissoes()->sync(array_keys($grupoRequest->permissoes));
+                }
                 flash('Grupo atualizado com sucesso!')->success();
                 return redirect()->route('admin.grupos.index');
             }
@@ -71,7 +83,10 @@ class GruposController extends Controller
             return redirect()->route('admin.grupos.index');
         }
         if ($grupo) {
-            return view('admin.grupos.edit', ['grupo' => $grupo]);
+            return view('admin.grupos.edit', [
+                'grupo' => $grupo,
+                'permissoes' => $controleAcessoService->processaPermissoesArray($id, 'grupo', 'grupo_id')
+            ]);
         }
         flash('Grupo não encontrado')->info();
         return redirect()->route('admin.grupos.index');
@@ -93,7 +108,8 @@ class GruposController extends Controller
 
     /**
      * Exibir itens removidos com softdeleted
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\View\View
+     * @param PesquisasRequest $pesquisasRequest
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function trashed(PesquisasRequest $pesquisasRequest)
     {
@@ -135,5 +151,11 @@ class GruposController extends Controller
         }
         flash('Não é possível deletar este Grupo')->info()->important();
         return redirect()->back();
+    }
+
+    public function gruposPermissoes(Request $request, ControleAcessoService $controleAcessoService)
+    {
+        $data = $controleAcessoService->processaPermissoesArray($request->get('id'), 'grupo', 'grupo_id');
+        return response()->json($data);
     }
 }

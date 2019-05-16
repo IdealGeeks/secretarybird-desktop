@@ -28,4 +28,8 @@
 @endsection
 
 @section('scripts')
+    <script>
+        var grupoUrl = '{{route('admin.grupos.permissoes')}}';
+    </script>
+    <script src="{{asset('js/admin/usuarios/grupo_permissoes.js')}}"></script>
 @endsection

@@ -78,6 +78,8 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => [\App
 
             Route::match(['post', 'get'], '/{id}/editar', 'GruposController@edit')->name('grupos.edit');
             Route::match(['post', 'get'], '/cadastro', 'GruposController@create')->name('grupos.create');
+
+            Route::any('/grupos-permissoes', 'GruposController@gruposPermissoes')->name('grupos.permissoes');
         });
 
         //Usuários - Clientes
