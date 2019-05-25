@@ -29,7 +29,7 @@ class GruposTableSeeder extends Seeder
 
         $super_grupo = [];
 
-        for ($i = 1; $i <= 47; $i++) {
+        for ($i = 1; $i <= 55; $i++) {
             $super_grupo[$i] = ['grupo_id' => 1, 'permissao_id' => $i];
         }
 

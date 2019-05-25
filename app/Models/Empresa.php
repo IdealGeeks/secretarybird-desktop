@@ -6,11 +6,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Empresa extends Model
 {
+    const TIPO_INTERNO = 1;
+    const TIPO_RESTAURANTE = 2;
+
     protected $table = 'empresas';
 
     protected $fillable = [
         'nome',
-        'interno',
+        'tipo',
     ];
 
     protected $dates = [

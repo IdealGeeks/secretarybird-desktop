@@ -132,6 +132,17 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => [\App
             Route::delete('/{id}/forceDelete', 'EmpresasController@forceDelete')->name('empresas.forceDelete');
         });
 
+        //Restaurantes
+        Route::prefix('/restaurantes')->group(function () {
+            Route::get('/', 'RestaurantesController@index')->name('restaurantes.index');
+            Route::get('/{id}/editar', 'RestaurantesController@edit')->name('restaurantes.edit');
+            Route::get('/cadastro', 'RestaurantesController@create')->name('restaurantes.create');
+            Route::get('/lixeira', 'RestaurantesController@trashed')->name('restaurantes.trashed');
+            Route::delete('/delete/{id}', 'RestaurantesController@destroy')->name('restaurantes.destroy');
+            Route::get('/{id}/restaura', 'RestaurantesController@restore')->name('restaurantes.restore');
+            Route::delete('/{id}/forceDelete', 'RestaurantesController@forceDelete')->name('restaurantes.forceDelete');
+        });
+
         //Setores
         Route::prefix('/setores')->group(function () {
             Route::get('/', 'SetoresController@index')->name('setores.index');

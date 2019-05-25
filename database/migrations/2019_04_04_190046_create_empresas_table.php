@@ -16,7 +16,7 @@ class CreateEmpresasTable extends Migration
         Schema::create('empresas', function (Blueprint $table) {
             $table->integer('id', true);
             $table->string('nome');
-            $table->integer('interno');
+            $table->integer('tipo', [1,2,3])->comment('1 => Interno, 2 => Restaurante, 3 => Fornecedor');
             $table->timestamps();
             $table->softDeletes();
         });

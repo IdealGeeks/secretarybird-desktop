@@ -14,55 +14,55 @@ class EmpresasTableSeeder extends Seeder
         \Illuminate\Support\Facades\DB::table('empresas')->insert([
             [
                 'nome' => 'Doutores da Web',
-                'interno' => '1',
+                'tipo' => \App\Models\Empresa::TIPO_INTERNO,
             ],
             [
                 'nome' => 'Soluções Industrias',
-                'interno' => '1',
+                'tipo' => \App\Models\Empresa::TIPO_INTERNO,
             ],
             [
                 'nome' => 'Busca Cliente',
-                'interno' => '1',
+                'tipo' => \App\Models\Empresa::TIPO_INTERNO,
             ],
             [
                 'nome' => 'Ideal Marketing',
-                'interno' => '1',
+                'tipo' => \App\Models\Empresa::TIPO_INTERNO,
             ],
             [
                 'nome' => 'Kalahary',
-                'interno' => '1',
+                'tipo' => \App\Models\Empresa::TIPO_INTERNO,
             ],
             [
                 'nome' => 'Habbis',
-                'interno' => '0',
+                'tipo' => \App\Models\Empresa::TIPO_RESTAURANTE,
             ],
             [
                 'nome' => 'Bk',
-                'interno' => '0',
+                'tipo' => \App\Models\Empresa::TIPO_RESTAURANTE,
             ],
             [
                 'nome' => 'Mc Donalds',
-                'interno' => '0',
+                'tipo' => \App\Models\Empresa::TIPO_RESTAURANTE,
             ],
             [
                 'nome' => 'Pastel da M',
-                'interno' => '0',
+                'tipo' => \App\Models\Empresa::TIPO_RESTAURANTE,
             ],
             [
                 'nome' => 'Pizzaria',
-                'interno' => '0',
+                'tipo' => \App\Models\Empresa::TIPO_RESTAURANTE,
             ],
             [
                 'nome' => 'Paris 6',
-                'interno' => '0',
+                'tipo' => \App\Models\Empresa::TIPO_RESTAURANTE,
             ],
             [
                 'nome' => 'Hannover',
-                'interno' => '0',
+                'tipo' => \App\Models\Empresa::TIPO_RESTAURANTE,
             ],
             [
                 'nome' => 'Chalezinho',
-                'interno' => '0',
+                'tipo' => \App\Models\Empresa::TIPO_RESTAURANTE,
             ]
         ]);
     }
